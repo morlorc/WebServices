@@ -1,0 +1,311 @@
+#benevole 
+{
+	background-image: url("Benevole.jpg");
+	background-size: cover;
+	background-position: center center;
+	transition: 2s, opacity 1.5s;
+	text-align: center;
+    transition-delay:0s;
+    overflow: hidden;
+    left:0px;
+    height: 100%;
+    width: 50%;
+    position: fixed;
+}
+#association 
+{
+	background-image: url("Association.jpg");
+	/*background-size: auto 102vh;*/
+	background-size: cover;
+	background-position: center center;
+	transition: 2s, opacity 1.5s;
+	text-align: center;
+    transition-delay: 0s;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    right:0px;
+    height: 100%;
+    width: 50%;
+    position: fixed;
+}
+#choix
+{
+	height: 100vh;
+	width: 100vw;
+}
+
+#choix form{
+	background-color: rgba(255,255,255,0.8);
+    max-width: 330px;
+    min-width: 250px;
+    width: 40%;
+    margin:auto;
+    padding-top: 15px;
+    border-radius: 0 0 .25rem .25rem;
+    padding-bottom: 1em;
+}
+.inscription, .connexion {
+	display:none;
+}
+#choix h2{
+	color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+    max-width: 330px;
+    min-width: 250px;
+    width: 40%;
+    margin:auto;
+    border-radius: .25rem .25rem 0 0;
+    font-size: 1.5em;
+    line-height: 1.8em;
+}
+
+#choix form input[type=submit] {
+    background-color: #0CB0E8;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: auto;
+}
+
+header{
+	position: absolute;
+	text-align: center;
+    z-index: 1;
+}
+
+#choix .noselect {
+    width: 0;
+    opacity: 0;
+}
+#choix .select {
+	width: 100%;
+	opacity:1;
+}
+
+.leftarrow{
+	height: 50px;
+	width: 50px;
+	background: url("arrow.svg") rgba(255,255,255,0.3) no-repeat 70% center;
+	background-size: 70%;
+	opacity: 0.6;
+	border-radius: 50%;
+	border: solid 2px;
+	transition: 0.5s;
+	transform: scale(-1) translateY(-50%);; 
+	position:absolute;
+	left: 35px;
+	top: calc(50% - 50px);
+    z-index: 1;
+    display:none;
+}
+
+.leftarrow:hover{
+	background-position: 99% center;
+	opacity: 1;
+	cursor: pointer;
+	box-shadow: -1px -0px 5px;
+}
+
+
+.rightarrow{
+	height: 50px;
+	width: 50px;
+	background: url("arrow.svg") rgba(255,255,255,0.3) no-repeat 70% center;
+	background-size: 70%;
+	opacity: 0.6;
+	border-radius: 50%;
+	border: solid 2px;
+	transition: 0.5s;
+	transform: translateY(-50%);; 
+	position:absolute;
+	right: 35px;
+	top: calc(50%);
+    z-index: 1;
+    display:none;
+}
+
+.rightarrow:hover{
+	background-position: 99% center;
+	opacity: 1;
+	cursor: pointer;
+	box-shadow: 1px -0px 5px;
+}
+
+body#connexion {
+	max-width: 100vw;
+	max-height: 100vh;
+	overflow: hidden;
+}
+
+#choix h1, .base, .inscription, .connexion{
+}
+
+#choix h1{
+	color:#fff;
+	text-shadow: 0px 0px 3px black;
+}
+
+#choix form input[type=submit]{
+	transition:0.6s;
+	min-width: 40%;
+}
+
+#choix form input[type=submit]:hover{
+    padding: 14px auto;
+    min-width: 100%;
+}
+
+.base{
+	margin-top: 55px;
+}
+.contenu{
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+/* Icons formulaire */
+/* Style the input container 
+.input-container {
+  display: flex;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+/* Style the form icons */
+.icon {
+	padding: 10px;
+	background: #007bff;
+	color: white;
+	width: 40px;
+	text-align: center;
+	margin: 0px;
+	display: inline-block;
+	height: 38px;
+	margin-left: auto;
+}
+/* test pour changer l'icone des formulaires
+.icon {
+    padding: 10px;
+    background: #007bff;
+    color: white;
+    width: 30px;
+    text-align: center;
+    margin: 0px;
+    display: inline-block;
+    height: 38px;
+}
+label i::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    border-top: 18px solid transparent;
+    border-bottom: 18px solid transparent;
+    border-left: 18px solid #007bff;
+    position: relative;
+    left: calc(100% + 10px);
+    bottom: calc(100% + 7px);
+    z-index: 1;
+}
+.input-field {
+    padding: 5px;
+    outline: none;
+    margin: 0px;
+    display: inline-block;
+    height: 38px;
+    position: relative;
+    padding-left: 20px;
+}
+*/
+
+/* Style the input fields */
+.input-container, label {
+    width: 100%;
+}
+
+.input-field {
+	padding: 5px;
+	outline: none;
+	margin: 0px;
+	display: inline-block;
+	height: 38px;
+	position: relative;
+	margin-right: auto;
+	transition: padding 0.2s;
+}
+
+.input-field:focus {
+	border: 2px solid #007bff;
+	border-left: 0;
+    padding-left: 7px;
+    padding-right: 13px;
+}
+
+label {
+    display: inline-flex;
+}
+
+label i::after {
+	content: '';
+	display: block;
+	width: 0; 
+	height: 0; 
+	border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 5px solid #007bff;
+    position: relative;
+    left: calc(100% + 10px);
+    bottom: calc(50% + 2.5px);
+    z-index: 1;
+}
+
+/*
+ input:before {
+ content:'';
+ display: inline-block;
+ position: relative;
+ left: 0;
+ top:0;
+ width: 20px;
+ background-color: #0CB0E8;
+ border:1 solid #ddd;
+} */
+
+@media (max-width: 767px) {
+	#choix .noselect {
+	    height: 0;
+		width: 100%;
+	}
+	#choix .select{
+		height:100%;
+		width: 100%;
+	}
+	#benevole{
+		height:50%;
+		width: 100%;
+    	top:0px;
+		background-size: auto 102vh;
+	}
+	#association{
+		height:50%;
+		width: 100%;
+   		bottom:0px;
+		background-size: auto 102vh;
+	}
+	.leftarrow{
+		transform: rotate(-90deg) translateX(-50%); 
+		top: auto;
+		left:calc(50% - 25px);
+		top: 30px;
+	}
+	.rightarrow{
+		transform: rotate(90deg) translateX(-50%); 
+		top: auto;
+		left:calc(50% - 25px);
+		bottom: 30px;
+	}
+}

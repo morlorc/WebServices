@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<associations xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="association.xsd">
+	<association>
+		<identifiants>
+			<SIREN>479606410</SIREN>
+			<nom_asso>Promenades bucoliques SARL</nom_asso>
+			<mdp_asso>pKQvfXBEnP</mdp_asso>
+		</identifiants>
+		<evenements>
+			<evenement>
+				<id_event>05323</id_event>
+				<nom_event>Balade party</nom_event>
+				<date_debut>2018-03-30</date_debut>
+				<date_fin>2018-03-31</date_fin>
+				<description_event>Balade champêtre entre amis</description_event>
+				<poste>
+					<intitulé_poste>Guide touristique</intitulé_poste>
+					<description_poste>Connait la nature</description_poste>
+				</poste>
+				<candidatures>
+					<candidature>
+						<id_pers>032556548</id_pers>
+						<nom_pers>Martin</nom_pers>
+						<prenom_pers>Jean</prenom_pers>
+						<motivation>Aime bien marcher moi</motivation>
+						<mail_pers>jean.martin@gmail.com</mail_pers>
+						<etat>En cours</etat>
+					</candidature>
+					<candidature>
+						<id_pers>056624582</id_pers>
+						<nom_pers>Mamour</nom_pers>
+						<prenom_pers>Jean-Michel</prenom_pers>
+						<motivation>J’aime la nature</motivation>
+						<mail_pers>jeanmichel.mamour@wanadoo.com</mail_pers>
+						<etat>Accepté</etat>
+					</candidature>
+					<candidature>
+						<id_pers>263624582</id_pers>
+						<nom_pers>Nerie</nom_pers>
+						<prenom_pers>Mark</prenom_pers>
+						<motivation>Cpaske c b1 lé chan</motivation>
+						<mail_pers>thugdu92@yahool.fr</mail_pers>
+						<etat>Refus</etat>
+					</candidature>
+				</candidatures>
+			</evenement>
+		</evenements>
+	</association>
+</associations>
