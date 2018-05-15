@@ -36,21 +36,21 @@ public class Inscription_benevole extends HttpServlet {
     }
 
     	private void validationNom( String nom ) throws Exception{
-    	    if ( nom != null && nom.trim().length() < 3 ) {
+    	    if ( nom == null || nom.trim().length() < 3 ) {
     	        throw new Exception( "Le nom doit contenir au moins 3 caractères." );
     	    }
     	}
     	
     	private void validationPrenom( String prenom ) throws Exception{
-    	    if ( prenom != null && prenom.trim().length() < 3 ) {
+    	    if ( prenom == null || prenom.trim().length() < 3 ) {
     	        throw new Exception( "Le prénom doit contenir au moins 3 caractères." );
     	    }
     	}
     	
         private void validationAge( String age ) throws Exception{
-    	    if ( age != null ) {
-	        throw new Exception( "Vous devez indiquer votre age" );
-    	    }/* a faire */
+    	    if ( age == null || age < 16) {
+    	    	throw new Exception( "Vous devez avoir au moins 16 ans." );
+    	    }
         }
         
         private void validationEmail( String email ) throws Exception{
