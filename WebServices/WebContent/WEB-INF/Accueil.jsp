@@ -31,7 +31,7 @@
 				<div class="rightarrow">
 				</div>
 				<div class="contenu">
-					<h1>Vous êtes bénévole</h1>
+					<h1>Vous êtes bénévole sur Git</h1>
 					<div class="base">
 						<span class="glyphicon glyphicon-envelope"></span>
 						<div class="btn-group-vertical">
