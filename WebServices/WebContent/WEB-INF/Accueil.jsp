@@ -19,12 +19,6 @@
 		<header class="container-fluid">
 			<a href="Accueil.html"><h1>Volunteam</h1></a>
 		</header>
-		<p>
-            <% 
-            String attribut = (String) request.getAttribute("test");
-            out.println( attribut );
-            %>
-        </p>
 
 		<div id="choix">
 			<section id="benevole">
