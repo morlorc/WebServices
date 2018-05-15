@@ -17,10 +17,9 @@
 	<body id="connexion">
 
 		<header class="container-fluid">
-			<a href="Accueil.html">
-				<h1>Volunteam</h1>
-			</a>
+			<a href="Accueil.html"><h1>Volunteam</h1></a>
 		</header>
+
 
 		<div id="choix">
 			<section id="benevole">
@@ -41,33 +40,33 @@
 							<div class="input-container">
 								<label for="nom">
 									<i class="fa fa-user icon"></i>
-									<input class="input-field" type="text" id="nom" placeholder="Saisir nom"/>
+									<input class="input-field" type="text" id="nomB" name="nomB" placeholder="Saisir nom"/>
 								</label>
 							</div>
 							<div class="input-container">
 								<label for="prenom">
 									<i class="fa fa fa-user-o icon"></i>
-									<input class="input-field" type="text" id="prenom" placeholder="Saisir prénom"/>
+									<input class="input-field" type="text" id="prenomB" name="prenomB" placeholder="Saisir prénom"/>
 								</label>
 							</div>
 							<div class="input-container">
 								<label for="age">
 									<i class="fa fa-calendar icon"></i>
-									<input class="input-field" type="number" id="age" placeholder="Saisir age"/>
+									<input class="input-field" type="number" id="ageB" name="ageB" placeholder="Saisir age"/>
 								</label>
 							<br />
 							</div>
 							<div class="input-container">
 								<label for="mail">
 									<i class="fa fa-envelope icon"></i>
-									<input class="input-field" type="email" id="mail" placeholder="Saisir email"/>
+									<input class="input-field" type="email" id="mailB" name="mailB"placeholder="Saisir email"/>
 								</label>
 							<br />
 							</div>
 							<div class="input-container">
 								<label for="mdp">
 									<i class="fa fa-lock icon"></i>
-									<input class="input-field" type="password" id="mdp" placeholder="Saisir mot de passe"/>
+									<input class="input-field" type="password" id="mdpB" name="mdpB" placeholder="Saisir mot de passe"/>
 								</label>
 							<br />
 							</div>
@@ -84,14 +83,14 @@
 							<div class="input-container">
 								<label for="mail">
 									<i class="fa fa-envelope icon"></i>
-									<input class="input-field" type="email" id="mail" placeholder="Saisir mail"/>
+									<input class="input-field" type="email" id="mailC" name="mailC" placeholder="Saisir mail"/>
 								</label>
 							<br />
 							</div>
 							<div class="input-container">
 								<label for="mdp">
 									<i class="fa fa-lock icon"></i>
-									<input class="input-field" type="password" id="mdp" placeholder="Saisir mot de passe"/>
+									<input class="input-field" type="password" id="mdpC" name="mdpC" placeholder="Saisir mot de passe"/>
 								</label>
 							<br />
 							</div>
@@ -99,7 +98,7 @@
 							<input type="submit" value="Se connecter" />
 						</form>
 							<br />
-						<input type="button" class="btn btn-default" value="Pas encore inscrit ?" onClick="BenevoleInscription()">
+						<input type="button" class="btn btn-default" value="Pas encore inscrit ?" onClick="BenevoleInscription()"></br>
 					</div>
 				</div>
 			</section>
@@ -120,7 +119,7 @@
 							<div class="input-container">
 								<label for="nom">
 									<i class="fa fa-tag icon"></i>
-									<input class="input-field" type="text" id="nom" placeholder="Saisir nom d'association"/>
+									<input class="input-field" type="text" id="nomA" name="nomA" placeholder="Saisir nom d'association"/>
 								</label>
 							<br />
 							</div>
@@ -128,7 +127,7 @@
 							<div class="input-container">
 								<label for="SIREN">
 									<i class="fa fa-hashtag icon"></i>
-									<input class="input-field" type="number" id="SIREN" placeholder="Saisir numéro SIREN"/>
+									<input class="input-field" type="number" id="SIREN" name="SIREN" placeholder="Saisir numéro SIREN"/>
 								</label>
 								<br />
 							</div>
@@ -136,7 +135,7 @@
 							<div class="input-container">
 								<label for="mail">
 									<i class="fa fa-envelope icon"></i>
-									<input class="input-field" type="email" id="mail" placeholder="Saisir email"/>
+									<input class="input-field" type="email" id="mailA" name="mailA" placeholder="Saisir email"/>
 								</label>
 								<br />
 							</div>
@@ -144,7 +143,7 @@
 							<div class="input-container">
 								<label for="mdp">
 									<i class="fa fa-lock icon"></i>
-									<input class="input-field" type="password" id="mdp" placeholder="Saisir mot de passe" />
+									<input class="input-field" type="password" id="mdpA" name="mdpA" placeholder="Saisir mot de passe" />
 								</label>
 								<br />
 							</div>
@@ -162,14 +161,14 @@
 							<div class="input-container">
 								<label for="mail">
 									<i class="fa fa-envelope icon"></i>
-									<input class="input-field" type="email" id="mail"  placeholder="Saisir mail"/>
+									<input class="input-field" type="email" id="mailC" name="mailC"  placeholder="Saisir mail"/>
 									<br />
 								</label>
 							</div>
 							<div class="input-container">
 								<label for="mdp">
 									<i class="fa fa-lock icon"></i>
-									<input class="input-field" type="password" id="mdp"  placeholder="Saisir mot de passe"/>
+									<input class="input-field" type="password" id="mdpC" name="mdpC"  placeholder="Saisir mot de passe"/>
 									<br />
 								</label>
 							</div>
@@ -178,6 +177,7 @@
 						</form>
 							<br />
 						<input type="button" class="btn btn-default" value="Pas encore inscrit ?" onClick="AssociationInscription()">
+						</br>
 					</div>
 				</div>
 			</section>
