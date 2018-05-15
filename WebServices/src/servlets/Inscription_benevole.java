@@ -20,7 +20,7 @@ public class Inscription_benevole extends HttpServlet {
         /* Récupération des champs du formulaire. */
         String nom = request.getParameter( CHAMP_NOM );
         String prenom = request.getParameter( CHAMP_PRENOM );
-        String age = request.getParameter( CHAMP_AGE );
+        int age = Integer.parseInt(request.getParameter( CHAMP_AGE ));
         String email = request.getParameter( CHAMP_EMAIL );
         String motDePasse = request.getParameter( CHAMP_PASS );
 
@@ -47,7 +47,7 @@ public class Inscription_benevole extends HttpServlet {
     	    }
     	}
     	
-        private void validationAge( String age ) throws Exception{
+        private void validationAge( int age ) throws Exception{
     	    if ( age == null || age < 16) {
     	    	throw new Exception( "Vous devez avoir au moins 16 ans." );
     	    }
