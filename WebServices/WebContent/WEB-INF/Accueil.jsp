@@ -17,7 +17,9 @@
 	<body id="connexion">
 
 		<header class="container-fluid">
-			<a href="Accueil.html"><h1>Volunteam</h1></a>
+			<a href="Accueil.html">
+				<h1>Volunteam</h1>
+			</a>
 		</header>
 
 		<div id="choix">
@@ -97,7 +99,7 @@
 							<input type="submit" value="Se connecter" />
 						</form>
 							<br />
-						<input type="button" class="btn btn-default" value="Pas encore inscrit ?" onClick="BenevoleInscription()"></br>
+						<input type="button" class="btn btn-default" value="Pas encore inscrit ?" onClick="BenevoleInscription()">
 					</div>
 				</div>
 			</section>
@@ -176,7 +178,6 @@
 						</form>
 							<br />
 						<input type="button" class="btn btn-default" value="Pas encore inscrit ?" onClick="AssociationInscription()">
-						</br>
 					</div>
 				</div>
 			</section>

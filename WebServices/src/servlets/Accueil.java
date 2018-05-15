@@ -8,7 +8,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class Accueil extends HttpServlet {
-    public static final String VUE = "/WEB-INF/Accueil.jsp";
+
+	private static final long serialVersionUID = 1L;
+	
+	public static final String VUE = "/WEB-INF/Accueil.jsp";
     public static final String CHAMP_NOM = "nom";
     public static final String CHAMP_PRENOM = "prenom";
     public static final String CHAMP_AGE = "age";
