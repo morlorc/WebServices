@@ -48,7 +48,9 @@ public class Inscription_benevole extends HttpServlet {
     	}
     	
         private void validationAge( String age ) throws Exception{
-        	/* a faire */
+    	    if ( age != null ) {
+	        throw new Exception( "Vous devez indiquer votre age" );
+    	    }/* a faire */
         }
         
         private void validationEmail( String email ) throws Exception{
