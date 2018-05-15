@@ -16,20 +16,20 @@ public class Inscription_benevole extends HttpServlet {
     public static final String CHAMP_PASS = "motdepasse";
 
     public void doPost( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
-
+    	System.out.println("test");	
         /* Récupération des champs du formulaire. */
         String nom = request.getParameter( CHAMP_NOM );
         String prenom = request.getParameter( CHAMP_PRENOM );
         int age = Integer.parseInt(request.getParameter( CHAMP_AGE ));
-        String email = request.getParameter( CHAMP_EMAIL );
-        String motDePasse = request.getParameter( CHAMP_PASS );
+        String mail = request.getParameter( CHAMP_EMAIL );
+        String mdp = request.getParameter( CHAMP_PASS );
 
         try {
             validationNom( nom );
             validationPrenom( prenom );
             validationAge( age );
-            validationEmail( email );
-            validationMotsDePasse( motDePasse );
+            validationEmail( mail );
+            validationMotsDePasse( mdp );
         } catch (Exception e) {
             /* Gérer les erreurs de validation ici. */
         }
@@ -63,28 +63,28 @@ public class Inscription_benevole extends HttpServlet {
     	    }
         }
         
-        private void validationEmail( String email ) throws Exception{
-            if ( email != null && email.trim().length() != 0 ) {
-                if ( !email.matches( "([^.@]+)(\\.[^.@]+)*@([^.@]+\\.)+([^.@]+)" ) ) {
+        private void validationEmail( String mail ) throws Exception{
+            if ( mail != null && mail.trim().length() != 0 ) {
+                if ( !mail.matches( "([^.@]+)(\\.[^.@]+)*@([^.@]+\\.)+([^.@]+)" ) ) {
                     throw new Exception( "Merci de saisir une adresse mail valide." );
                 }
             } else {
                 throw new Exception( "Merci de saisir une adresse mail." );
             }
-            if ( email.trim().length() > 100 ) {
+            if ( mail.trim().length() > 100 ) {
                 throw new Exception( "L'addresse mail est trop longue" ); 
             }
         }
         
-        private void validationMotsDePasse( String motDePasse ) throws Exception{
-        	if (motDePasse != null && motDePasse.trim().length() != 0) {
-        		if (motDePasse.trim().length() < 3) {
+        private void validationMotsDePasse( String mdp ) throws Exception{
+        	if (mdp != null && mdp.trim().length() != 0) {
+        		if (mdp.trim().length() < 3) {
                     throw new Exception("Le mot de passe doit contenir au moins 3 caractères.");
                 }
             } else {
                 throw new Exception("Merci de saisir votre mot de passe.");
             }
-    	    if (motDePasse.trim().length() > 100 ) {
+    	    if (mdp.trim().length() > 100 ) {
     	        throw new Exception( "Le mot de passe ne peut dépasser 100 caaractères" );
     	    }
         }
