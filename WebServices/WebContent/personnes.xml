@@ -3,7 +3,6 @@
 <personnes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:noNamespaceSchemaLocation="personnes.xsd">
 	<personne>
-		<id_pers>056624582</id_pers>
 		<mdp_pers>mamour2018</mdp_pers>
 		<nom_pers>Mamour</nom_pers>
 		<prenom_pers>Jean-Michel</prenom_pers>
@@ -20,7 +19,6 @@
 	</personne>
 
 	<personne>
-		<id_pers>032556548</id_pers>
 		<mdp_pers>0452585erzer</mdp_pers>
 		<nom_pers>Martin</nom_pers>
 		<prenom_pers>Jean</prenom_pers>
@@ -37,7 +35,6 @@
 	</personne>
 
 	<personne>
-		<id_pers>263624582</id_pers>
 		<mdp_pers>qwerty123r</mdp_pers>
 		<nom_pers>Nerie</nom_pers>
 		<prenom_pers>Mark</prenom_pers>

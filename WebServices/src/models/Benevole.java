@@ -2,20 +2,11 @@ package models;
 
 public class Benevole {
 
-	private int id_bv;
 	private String prenom;
 	private String nom;
 	private int age;
 	private String mail;
 	private String mdp;
-	
-	public int getId_bv() {
-		return id_bv;
-	}
-	
-	public void setId_bv(int id_bv) {
-		this.id_bv = id_bv;
-	}
 	
 	public String getPrenom() {
 		return prenom;
