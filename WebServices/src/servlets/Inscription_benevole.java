@@ -47,7 +47,7 @@ public class Inscription_benevole extends HttpServlet {
             validationMotsDePasse( motDePasse );
         } catch (Exception e) {
              //Gérer les erreurs de validation ici.
-        	System.out.println("Problème dans les paramètres");
+        	System.out.println("Problème dans les paramètres !");
         }
     }
 
