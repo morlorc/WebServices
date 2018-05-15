@@ -48,7 +48,7 @@ public class Inscription_benevole extends HttpServlet {
     	}
     	
         private void validationAge( int age ) throws Exception{
-    	    if ( age == null || age < 16) {
+    	    if ( age < 16) {
     	    	throw new Exception( "Vous devez avoir au moins 16 ans." );
     	    }
         }
