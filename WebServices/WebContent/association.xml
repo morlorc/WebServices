@@ -6,7 +6,9 @@
 		<identifiants>
 			<SIREN>479606410</SIREN>
 			<nom_asso>Promenades bucoliques SARL</nom_asso>
+			<mail_asso>Promenades bucoliques SARL</mail_asso>
 			<mdp_asso>pKQvfXBEnP</mdp_asso>
+
 		</identifiants>
 		<evenements>
 			<evenement>
@@ -15,10 +17,6 @@
 				<date_debut>2018-03-30</date_debut>
 				<date_fin>2018-03-31</date_fin>
 				<description_event>Balade champêtre entre amis</description_event>
-				<poste>
-					<intitulé_poste>Guide touristique</intitulé_poste>
-					<description_poste>Connait la nature</description_poste>
-				</poste>
 				<candidatures>
 					<candidature>
 						<id_pers>032556548</id_pers>

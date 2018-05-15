@@ -26,6 +26,7 @@
 									<xs:sequence>
 										<xs:element type="string_SIREN" name="SIREN"/>
 										<xs:element type="xs:string" name="nom_asso"/>
+										<xs:element type="string_mail" name="mail_asso"/>
 										<xs:element type="string_mdp" name="mdp_asso"/>
 									</xs:sequence>
 								</xs:complexType>
@@ -41,14 +42,6 @@
 													<xs:element type="xs:date" name="date_debut"/>
 													<xs:element type="xs:date" name="date_fin"/>
 													<xs:element type="xs:string" name="description_event"/>
-													<xs:element name="poste">
-														<xs:complexType>
-															<xs:sequence>
-																<xs:element type="xs:string" name="intitulé_poste"/>
-																<xs:element type="xs:string" name="description_poste"/>
-															</xs:sequence>
-														</xs:complexType>
-													</xs:element>
 													<xs:element name="candidatures">
 														<xs:complexType>
 															<xs:sequence>
