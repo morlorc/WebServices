@@ -38,8 +38,8 @@
 									<input class="input-field" type="text" id="nomB" name="nomB" placeholder="Saisir nom"/>
 								</label>
 							</div>
-							<div class="input-container">
-								<label for="prenom" data-toggle="tooltip" data-placement="right" title="Entre 3 et 30 caractères">
+							<div class="input-container" data-toggle="tooltip" data-placement="right" title="Entre 3 et 30 caractères">
+								<label for="prenom">
 									<i class="fa fa fa-user-o icon"></i>
 									<input class="input-field" type="text" id="prenomB" name="prenomB" placeholder="Saisir prénom"/>
 								</label>
@@ -51,14 +51,14 @@
 								</label>
 							<br />
 							</div>
-							<div class="input-container">
+							<div class="input-container" data-toggle="tooltip" data-placement="right" title="exemple@web.fr">
 								<label for="mail">
 									<i class="fa fa-envelope icon"></i>
 									<input class="input-field" type="email" id="mailB" name="mailB"placeholder="Saisir email"/>
 								</label>
 							<br />
 							</div>
-							<div class="input-container">
+							<div class="input-container" data-toggle="tooltip" data-placement="right" title="Au moins 8 caractères">
 								<label for="mdp">
 									<i class="fa fa-lock icon"></i>
 									<input class="input-field" type="password" id="mdpB" name="mdpB" placeholder="Saisir mot de passe"/>
@@ -115,7 +115,7 @@
 					<div class="inscription">
 						<h2>Inscription</h2>
 						<form method="post" action="inscription_association">
-							<div class="input-container">
+							<div class="input-container" data-toggle="tooltip" data-placement="right" title="Entre 3 et 30 caractères">
 								<label for="nom">
 									<i class="fa fa-tag icon"></i>
 									<input class="input-field" type="text" id="nomA" name="nomA" placeholder="Saisir nom d'association"/>
@@ -123,7 +123,7 @@
 							<br />
 							</div>
 
-							<div class="input-container">
+							<div class="input-container" data-toggle="tooltip" data-placement="right" title="9 chiffres">
 								<label for="SIREN">
 									<i class="fa fa-hashtag icon"></i>
 									<input class="input-field" type="number" id="SIREN" name="SIREN" placeholder="Saisir numéro SIREN"/>
@@ -132,14 +132,14 @@
 							</div>
 
 							<div class="input-container">
-								<label for="mail">
+								<label for="mail"  data-toggle="tooltip" data-placement="right" title="exemple@web.fr">
 									<i class="fa fa-envelope icon"></i>
 									<input class="input-field" type="email" id="mailA" name="mailA" placeholder="Saisir email"/>
 								</label>
 								<br />
 							</div>
 
-							<div class="input-container">
+							<div class="input-container"  data-toggle="tooltip" data-placement="right" title="Au moins 8 caractères">
 								<label for="mdp">
 									<i class="fa fa-lock icon"></i>
 									<input class="input-field" type="password" id="mdpA" name="mdpA" placeholder="Saisir mot de passe" />
