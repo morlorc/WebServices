@@ -153,6 +153,12 @@ body#connexion {
 	min-width: 40%;
 }
 
+#choix div .alert-danger {    
+	max-width: 400px;
+    width: 40%;
+    margin: auto;
+}
+
 #choix form input[type=submit]:hover, #choix form input[type=submit]:focus{
     padding: 14px auto;
     min-width: 100%;

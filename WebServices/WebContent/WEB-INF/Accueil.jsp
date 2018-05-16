@@ -16,17 +16,12 @@
 	</head>
 	<body id="connexion">
 
-		<header class="container-fluid">
-			<a href="Accueil.html"><h1>Volunteam</h1></a>
-		</header>
-
-
 		<div id="choix">
 			<section id="benevole">
 				<div class="rightarrow">
 				</div>
 				<div class="contenu">
-					<h1>Vous êtes bénévole sur Git</h1>
+					<h1>Vous êtes bénévole</h1>
 					<div class="base">
 						<span class="glyphicon glyphicon-envelope"></span>
 						<div class="btn-group-vertical">
@@ -37,14 +32,14 @@
 					<div class="inscription">
 						<h2>Inscription</h2>
 						<form method="post" action="inscription_benevole">
-							<div class="input-container">
+							<div class="input-container" data-toggle="tooltip" data-placement="right" title="Entre 3 et 30 caractères">
 								<label for="nom">
 									<i class="fa fa-user icon"></i>
 									<input class="input-field" type="text" id="nomB" name="nomB" placeholder="Saisir nom"/>
 								</label>
 							</div>
 							<div class="input-container">
-								<label for="prenom">
+								<label for="prenom" data-toggle="tooltip" data-placement="right" title="Entre 3 et 30 caractères">
 									<i class="fa fa fa-user-o icon"></i>
 									<input class="input-field" type="text" id="prenomB" name="prenomB" placeholder="Saisir prénom"/>
 								</label>
@@ -73,6 +68,10 @@
 
 							<input type="submit" value="S'inscrire" />
 						</form>
+							<div class="alert alert-danger alert-dismissible fade show">
+								<button type="button" class="close" data-dismiss="alert">&times;</button>
+								This alert box could indicate a dangerous or potentially negative action.
+							</div>
 							<br />
 						<input type="button" class="btn btn-default" value="Déjà inscrit ?" onClick="BenevoleConnexion()">
 					</div>
@@ -161,14 +160,14 @@
 							<div class="input-container">
 								<label for="mail">
 									<i class="fa fa-envelope icon"></i>
-									<input class="input-field" type="email" id="mailC" name="mailC"  placeholder="Saisir mail"/>
+									<input class="input-field" type="email" id="mailD" name="mailD"  placeholder="Saisir mail"/>
 									<br />
 								</label>
 							</div>
 							<div class="input-container">
 								<label for="mdp">
 									<i class="fa fa-lock icon"></i>
-									<input class="input-field" type="password" id="mdpC" name="mdpC"  placeholder="Saisir mot de passe"/>
+									<input class="input-field" type="password" id="mdpD" name="mdpD"  placeholder="Saisir mot de passe"/>
 									<br />
 								</label>
 							</div>
