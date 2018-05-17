@@ -48,7 +48,7 @@
 							<div class="input-container">
 								<label for="age">
 									<i class="fa fa-calendar icon"></i>
-									<input class="input-field" type="number" id="ageB" name="ageB" placeholder="Saisir age"/>
+									<input class="input-field" type="number" id="ageB" name="ageB" placeholder="Saisir age"  min="16" max="130"/>
 								</label>
 							<br />
 							</div>
@@ -71,7 +71,11 @@
 						</form>
 							<div class="alert alert-danger alert-dismissible fade show">
 								<button type="button" class="close" data-dismiss="alert">&times;</button>
-								This alert box could indicate a dangerous or potentially negative action.
+								<span class="erreur">${erreurs['nomB']}<br /></span>
+								<span class="erreur">${erreurs['prenomB']}<br /></span>
+								<span class="erreur">${erreurs['ageB']}<br /></span>
+								<span class="erreur">${erreurs['mailB']}<br /></span>
+								<span class="erreur">${erreurs['mdpB']}<br /></span>
 							</div>
 							<br />
 						<input type="button" class="btn btn-default" value="Déjà inscrit ?" onClick="BenevoleConnexion()">

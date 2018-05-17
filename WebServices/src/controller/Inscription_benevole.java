@@ -1,32 +1,42 @@
 package controller;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+@WebServlet(urlPatterns = "/inscription_benevole")
 
 public class Inscription_benevole extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 	
-	public static final String VUE = "/WEB-INF/Accueil.jsp";
+	public static final String VUE = "/WEB-INF/InscriptionBenevole.jsp";
     public static final String CHAMP_NOM_BN = "nomB";
     public static final String CHAMP_PRENOM_BN = "prenomB";
     public static final String CHAMP_AGE_BN = "ageB";
     public static final String CHAMP_EMAIL_BN = "mailB";
     public static final String CHAMP_PASS_BN = "mdpB";
+    public static final String ATT_ERREURS  = "erreurs";
+    public static final String ATT_RESULTAT = "resultat";
 
     public void doPost( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
 
+    	String resultat;
+        Map<String, String> erreurs = new HashMap<String, String>();
+    	
     	System.out.println("Paramètres :");
     	System.out.println(request.getParameter( CHAMP_NOM_BN ));
     	System.out.println(request.getParameter( CHAMP_PRENOM_BN ));
     	System.out.println(request.getParameter( CHAMP_AGE_BN ));
     	System.out.println(request.getParameter( CHAMP_EMAIL_BN ));
     	System.out.println(request.getParameter( CHAMP_PASS_BN ));
-        /* Récupération des champs du formulaire. */
+        // Récupération des champs du formulaire
     	
         String nom = request.getParameter( CHAMP_NOM_BN );
         String prenom = request.getParameter( CHAMP_PRENOM_BN );
@@ -34,21 +44,46 @@ public class Inscription_benevole extends HttpServlet {
         String email = request.getParameter( CHAMP_EMAIL_BN );
         String motDePasse = request.getParameter( CHAMP_PASS_BN );
       	
-        /*System.out.println("nom: " + nom);
-        System.out.println("prenom: " + prenom);
-        System.out.println("age: " + age);
-        System.out.println("email: " + email);
-        System.out.println("motDePasse: " + motDePasse); */
         try {
-            validationNom( nom );
-            validationPrenom( prenom );
-            validationAge( age );
-            validationEmail( email );
-            validationMotsDePasse( motDePasse );
-        } catch (Exception e) {
-             //Gérer les erreurs de validation ici.
-        	System.out.println("Problème dans les paramètres !");
+        	validationNom( nom );
+        }catch (Exception e){
+        	erreurs.put(CHAMP_NOM_BN, e.getMessage());
         }
+        
+        try {
+        	validationPrenom( prenom );
+        }catch (Exception e){
+        	erreurs.put(CHAMP_PRENOM_BN, e.getMessage());
+        }
+        
+        try {
+        	validationAge( age );
+        }catch (Exception e){
+        	erreurs.put(CHAMP_AGE_BN, e.getMessage());
+        }
+        
+        try {
+        	validationEmail( email );
+        }catch (Exception e){
+        	erreurs.put(CHAMP_EMAIL_BN, e.getMessage());
+        }
+        
+        try {
+        	validationMotsDePasse( motDePasse );
+        }catch (Exception e){
+        	erreurs.put(CHAMP_PASS_BN, e.getMessage());
+        }
+        
+        if ( erreurs.isEmpty() ) {
+            resultat = "Succès de l'inscription.";
+        } else {
+            resultat = "Échec de l'inscription.";
+        }
+        
+        request.setAttribute( ATT_ERREURS, erreurs );
+        request.setAttribute( ATT_RESULTAT, resultat );
+        
+        this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );
     }
 
 	private void validationNom( String nom ) throws Exception{
