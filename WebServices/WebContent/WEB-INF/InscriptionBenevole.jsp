@@ -36,26 +36,26 @@
 							<div class="input-container" data-toggle="tooltip" data-placement="right" title="Entre 3 et 30 caractères">
 								<label for="nom">
 									<i class="fa fa-user icon"></i>
-									<input class="input-field" type="text" id="nomB" name="nomB" placeholder="Saisir nom"/>
+									<input class="input-field" type="text" id="nomB" name="nomB" value="${param.nomB}" placeholder="Saisir nom"/>
 								</label>
 							</div>
 							<div class="input-container" data-toggle="tooltip" data-placement="right" title="Entre 3 et 30 caractères">
 								<label for="prenom">
 									<i class="fa fa fa-user-o icon"></i>
-									<input class="input-field" type="text" id="prenomB" name="prenomB" placeholder="Saisir prénom"/>
+									<input class="input-field" type="text" id="prenomB" name="prenomB" value="${param.prenomB}" placeholder="Saisir prénom"/>
 								</label>
 							</div>
 							<div class="input-container">
 								<label for="age">
 									<i class="fa fa-calendar icon"></i>
-									<input class="input-field" type="number" id="ageB" name="ageB" placeholder="Saisir age"  min="16" max="130"/>
+									<input class="input-field" type="number" id="ageB" name="ageB" value="${param.ageB}" placeholder="Saisir age"  min="16" max="130"/>
 								</label>
 							<br />
 							</div>
 							<div class="input-container" data-toggle="tooltip" data-placement="right" title="exemple@web.fr">
 								<label for="mail">
 									<i class="fa fa-envelope icon"></i>
-									<input class="input-field" type="email" id="mailB" name="mailB"placeholder="Saisir email"/>
+									<input class="input-field" type="email" id="mailB" value="${param.mailB}" name="mailB"placeholder="Saisir email"/>
 								</label>
 							<br />
 							</div>
@@ -71,11 +71,11 @@
 						</form>
 							<div class="alert alert-danger alert-dismissible fade show">
 								<button type="button" class="close" data-dismiss="alert">&times;</button>
-								<span class="erreur">${erreurs['nomB']}<br /></span>
-								<span class="erreur">${erreurs['prenomB']}<br /></span>
-								<span class="erreur">${erreurs['ageB']}<br /></span>
-								<span class="erreur">${erreurs['mailB']}<br /></span>
-								<span class="erreur">${erreurs['mdpB']}<br /></span>
+								<p>${erreurs['nomB']}
+								${erreurs['prenomB']}
+								${erreurs['ageB']}
+								${erreurs['mailB']}
+								${erreurs['mdpB']}</p>
 							</div>
 							<br />
 						<input type="button" class="btn btn-default" value="Déjà inscrit ?" onClick="BenevoleConnexion()">

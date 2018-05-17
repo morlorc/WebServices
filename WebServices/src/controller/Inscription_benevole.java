@@ -30,12 +30,12 @@ public class Inscription_benevole extends HttpServlet {
     	String resultat;
         Map<String, String> erreurs = new HashMap<String, String>();
     	
-    	System.out.println("Paramètres :");
+    	/*System.out.println("Paramètres :");
     	System.out.println(request.getParameter( CHAMP_NOM_BN ));
     	System.out.println(request.getParameter( CHAMP_PRENOM_BN ));
     	System.out.println(request.getParameter( CHAMP_AGE_BN ));
     	System.out.println(request.getParameter( CHAMP_EMAIL_BN ));
-    	System.out.println(request.getParameter( CHAMP_PASS_BN ));
+    	System.out.println(request.getParameter( CHAMP_PASS_BN ));*/
         // Récupération des champs du formulaire
     	
         String nom = request.getParameter( CHAMP_NOM_BN );
@@ -105,7 +105,7 @@ public class Inscription_benevole extends HttpServlet {
 	}
 	
     private void validationAge( String age ) throws Exception{
-    	if (age != null) {
+    	if (age != "") {
     		int age_i = Integer.parseInt(age);
 		    if ( age_i < 16) {
 		    	throw new Exception( "Vous devez avoir au moins 16 ans." );
@@ -114,7 +114,7 @@ public class Inscription_benevole extends HttpServlet {
 		    	throw new Exception( "Vous avez saisi un age trop grand" );
 		    }
     	}else {
-    		throw new Exception("Veuillez saisir un âge");
+    		throw new Exception("Veuillez saisir un âge.");
     	}
     }
     
@@ -142,6 +142,5 @@ public class Inscription_benevole extends HttpServlet {
 	    if (motDePasse.trim().length() > 100 ) {
 	        throw new Exception( "Le mot de passe ne peut dépasser 100 caractères" );
 	    }
-	    /* A rajouter la condition d'avoir un caractère spécial, un chiffre et une lettre*/
     }
 }
