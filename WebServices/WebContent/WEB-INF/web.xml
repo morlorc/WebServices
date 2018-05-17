@@ -3,12 +3,12 @@
   <display-name>WebServices</display-name>
   <servlet>
     <servlet-name>Accueil</servlet-name>
-    <servlet-class>servlets.Accueil</servlet-class>
+    <servlet-class>controller.Accueil</servlet-class>
     <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet>
     <servlet-name>Inscription_benevole</servlet-name>
-    <servlet-class>servlets.Inscription_benevole</servlet-class>
+    <servlet-class>controller.Inscription_benevole</servlet-class>
     <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>

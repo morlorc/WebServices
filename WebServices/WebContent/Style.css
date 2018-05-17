@@ -49,7 +49,7 @@
 }
 #choix h2{
 	color: #fff;
-    background-color: #007bff;
+    background: linear-gradient(to bottom right, #287cc9, #5a2ad0);
     border-color: #007bff;
     max-width: 330px;
     min-width: 250px;
@@ -61,7 +61,7 @@
 }
 
 #choix form input[type=submit]{
-    background-color: #0CB0E8;
+    background: linear-gradient(to bottom right, #1766af, #287cc9);
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
@@ -69,7 +69,19 @@
     cursor: pointer;
     width: auto;
 }
+.btn-group-vertical{
+	background:linear-gradient(to bottom right, #287cc9, #5a2ad0);
+  	border-radius: 3px;
 
+}
+.btn-group-vertical>.btn-primary:hover{
+	background-color: rgba(0, 0, 0,0.3);
+}
+
+.btn-group-vertical .btn-primary{
+	background-color:inherit;
+	border-color: rgba(0, 0, 0,0);
+}
 header{
 	position: absolute;
 	text-align: center;
@@ -153,6 +165,12 @@ body#connexion {
 	min-width: 40%;
 }
 
+#choix div .alert-danger {    
+	max-width: 400px;
+    width: 40%;
+    margin: auto;
+}
+
 #choix form input[type=submit]:hover, #choix form input[type=submit]:focus{
     padding: 14px auto;
     min-width: 100%;
@@ -225,6 +243,41 @@ label i::after {
 /* Style the input fields */
 .input-container, label {
     width: 100%;
+}
+
+section>.card-columns {
+	margin-top: 80px;
+}
+.evenements {
+	background-image: url("Events.jpg");
+	background-size: auto;
+	background-position: center center;
+    background-attachment: fixed;
+}
+.navbar-expand-md{
+	background:linear-gradient(to bottom right, #287cc9, #5a2ad0)
+}
+.card p {
+	margin: 0;
+}
+.card-body {
+	padding: 0.5em;
+}
+.card-body .btn-primary {
+    display: block;
+    margin: 10px auto 0;
+    width:130px;
+}
+.card {
+	background: rgba(255,255,255,0.9);
+}
+.card-text, .card-header{
+	color: #007bff;
+}
+
+.card-header h4{
+	font-weight: 300;
+	font-size: 1em;
 }
 
 .input-field {
