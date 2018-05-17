@@ -1,5 +1,6 @@
-<!DOCTYPE html>
-<%@ page pageEncoding="UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
 		<title>Accueil</title>
@@ -14,40 +15,40 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 		<script src="fonction.js"></script>
 	</head>
-	<body id="connexion">
+	<body id="connexion"  onload="AssociationInscription()">
 
 		<div id="choix">
-			<section id="benevole">
+			<section id="benevole" class="noselect">
 				<div class="rightarrow">
 				</div>
 				<div class="contenu">
-					<h1>Vous Ãªtes bÃ©nÃ©vole</h1>
+					<h1>Vous êtes bénévole</h1>
 					<div class="base">
 						<span class="glyphicon glyphicon-envelope"></span>
 						<div class="btn-group-vertical">
-							<button type="button" class="btn btn-primary btn-default" onClick="BenevoleInscription()">Inscription bÃ©nÃ©vole</button>
-							<button type="button" class="btn btn-primary btn-default" onClick="BenevoleConnexion()">Connexion bÃ©nÃ©vole</button> 
+							<button type="button" class="btn btn-primary btn-default" onClick="BenevoleInscription()">Inscription bénévole</button>
+							<button type="button" class="btn btn-primary btn-default" onClick="BenevoleConnexion()">Connexion bénévole</button> 
 						</div>
 					</div>
 					<div class="inscription">
 						<h2>Inscription</h2>
 						<form method="post" action="inscription_benevole">
-							<div class="input-container" data-toggle="tooltip" data-placement="right" title="Entre 3 et 30 caractÃ¨res">
+							<div class="input-container" data-toggle="tooltip" data-placement="right" title="Entre 3 et 30 caractères">
 								<label for="nom">
 									<i class="fa fa-user icon"></i>
 									<input class="input-field" type="text" id="nomB" name="nomB" placeholder="Saisir nom"/>
 								</label>
 							</div>
-							<div class="input-container" data-toggle="tooltip" data-placement="right" title="Entre 3 et 30 caractÃ¨res">
+							<div class="input-container" data-toggle="tooltip" data-placement="right" title="Entre 3 et 30 caractères">
 								<label for="prenom">
 									<i class="fa fa fa-user-o icon"></i>
-									<input class="input-field" type="text" id="prenomB" name="prenomB" placeholder="Saisir prÃ©nom"/>
+									<input class="input-field" type="text" id="prenomB" name="prenomB" placeholder="Saisir prénom"/>
 								</label>
 							</div>
 							<div class="input-container">
 								<label for="age">
 									<i class="fa fa-calendar icon"></i>
-									<input class="input-field" type="number" id="ageB" name="ageB" placeholder="Saisir age"/>
+									<input class="input-field" type="number" id="ageB" name="ageB" placeholder="Saisir age"  min="16" max="130"/>
 								</label>
 							<br />
 							</div>
@@ -58,7 +59,7 @@
 								</label>
 							<br />
 							</div>
-							<div class="input-container" data-toggle="tooltip" data-placement="right" title="Au moins 8 caractÃ¨res">
+							<div class="input-container" data-toggle="tooltip" data-placement="right" title="Au moins 8 caractères">
 								<label for="mdp">
 									<i class="fa fa-lock icon"></i>
 									<input class="input-field" type="password" id="mdpB" name="mdpB" placeholder="Saisir mot de passe"/>
@@ -68,12 +69,8 @@
 
 							<input type="submit" value="S'inscrire" />
 						</form>
-							<div class="alert alert-danger alert-dismissible fade show">
-								<button type="button" class="close" data-dismiss="alert">&times;</button>
-								This alert box could indicate a dangerous or potentially negative action.
-							</div>
 							<br />
-						<input type="button" class="btn btn-default" value="DÃ©jÃ  inscrit ?" onClick="BenevoleConnexion()">
+						<input type="button" class="btn btn-default" value="Déjà inscrit ?" onClick="BenevoleConnexion()">
 					</div>
 					<div class="connexion">
 						<h2>Connexion</h2>
@@ -101,11 +98,11 @@
 					</div>
 				</div>
 			</section>
-			<section id="association">
+			<section id="association" class="select">
 				<div class="leftarrow">
 				</div>
 				<div class="contenu">
-					<h1>Vous Ãªtes une association</h1>
+					<h1>Vous êtes une association</h1>
 					<div class="base">
 						<div class="btn-group-vertical">
 							<button type="button" class="btn btn-primary btn-default" onClick="AssociationInscription()">Inscription association</button> 
@@ -115,7 +112,7 @@
 					<div class="inscription">
 						<h2>Inscription</h2>
 						<form method="post" action="inscription_association">
-							<div class="input-container" data-toggle="tooltip" data-placement="right" title="Entre 3 et 30 caractÃ¨res">
+							<div class="input-container" data-toggle="tooltip" data-placement="right" title="Entre 3 et 30 caractères">
 								<label for="nom">
 									<i class="fa fa-tag icon"></i>
 									<input class="input-field" type="text" id="nomA" name="nomA" placeholder="Saisir nom d'association"/>
@@ -126,7 +123,7 @@
 							<div class="input-container" data-toggle="tooltip" data-placement="right" title="9 chiffres">
 								<label for="SIREN">
 									<i class="fa fa-hashtag icon"></i>
-									<input class="input-field" type="number" id="SIREN" name="SIREN" placeholder="Saisir numÃ©ro SIREN"/>
+									<input class="input-field" type="number" id="SIREN" name="SIREN" placeholder="Saisir numéro SIREN"/>
 								</label>
 								<br />
 							</div>
@@ -139,7 +136,7 @@
 								<br />
 							</div>
 
-							<div class="input-container"  data-toggle="tooltip" data-placement="right" title="Au moins 8 caractÃ¨res">
+							<div class="input-container"  data-toggle="tooltip" data-placement="right" title="Au moins 8 caractères">
 								<label for="mdp">
 									<i class="fa fa-lock icon"></i>
 									<input class="input-field" type="password" id="mdpA" name="mdpA" placeholder="Saisir mot de passe" />
@@ -150,8 +147,12 @@
 
 							<input type="submit" value="S'inscrire" />
 						</form>
+							<div class="alert alert-danger alert-dismissible fade show">
+								<button type="button" class="close" data-dismiss="alert">&times;</button>
+								This alert box could indicate a dangerous or potentially negative action.
+							</div>
 							<br />
-						<input type="button" class="btn btn-default" value="DÃ©jÃ  inscrit ?" onClick="AssociationConnexion()">
+						<input type="button" class="btn btn-default" value="Déjà inscrit ?" onClick="AssociationConnexion()">
 					</div>
 					<div class="connexion">
 						<h2>Connexion</h2>

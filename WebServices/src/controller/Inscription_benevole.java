@@ -30,7 +30,7 @@ public class Inscription_benevole extends HttpServlet {
     	
         String nom = request.getParameter( CHAMP_NOM_BN );
         String prenom = request.getParameter( CHAMP_PRENOM_BN );
-        int age = Integer.parseInt(request.getParameter( CHAMP_AGE_BN ));
+        String age = request.getParameter( CHAMP_AGE_BN );
         String email = request.getParameter( CHAMP_EMAIL_BN );
         String motDePasse = request.getParameter( CHAMP_PASS_BN );
       	
@@ -69,13 +69,18 @@ public class Inscription_benevole extends HttpServlet {
 	    }
 	}
 	
-    private void validationAge( int age ) throws Exception{
-	    if ( age < 16) {
-	    	throw new Exception( "Vous devez avoir au moins 16 ans." );
-	    }
-	    else if (age > 130) {
-	    	throw new Exception( "Vous avez saisi un age trop grand" );
-	    }
+    private void validationAge( String age ) throws Exception{
+    	if (age != null) {
+    		int age_i = Integer.parseInt(age);
+		    if ( age_i < 16) {
+		    	throw new Exception( "Vous devez avoir au moins 16 ans." );
+		    }
+		    else if (age_i > 130) {
+		    	throw new Exception( "Vous avez saisi un age trop grand" );
+		    }
+    	}else {
+    		throw new Exception("Veuillez saisir un âge");
+    	}
     }
     
     private void validationEmail( String email ) throws Exception{

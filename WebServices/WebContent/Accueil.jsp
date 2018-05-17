@@ -1,8 +1,9 @@
 <!DOCTYPE html>
+<%@ page pageEncoding="UTF-8" %>
 <html>
 	<head>
 		<title>Accueil</title>
-		<link rel="icon" href="favico.ico" type="image/x-icon" />
+		<link rel="icon" href="group.png" type="image/x-icon" />
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
@@ -14,12 +15,6 @@
 		<script src="fonction.js"></script>
 	</head>
 	<body id="connexion">
-
-		<header class="container-fluid">
-			<a href="Accueil.html">
-				<h1>Volunteam</h1>
-			</a>
-		</header>
 
 		<div id="choix">
 			<section id="benevole">
@@ -36,37 +31,37 @@
 					</div>
 					<div class="inscription">
 						<h2>Inscription</h2>
-						<form>
-							<div class="input-container">
+						<form method="post" action="inscription_benevole">
+							<div class="input-container" data-toggle="tooltip" data-placement="right" title="Entre 3 et 30 caractères">
 								<label for="nom">
-								<i class="fa fa-user icon"></i>
-								<input class="input-field" type="text" id="nom" placeholder="Saisir nom"/>
+									<i class="fa fa-user icon"></i>
+									<input class="input-field" type="text" id="nomB" name="nomB" placeholder="Saisir nom"/>
 								</label>
 							</div>
-							<div class="input-container">
+							<div class="input-container" data-toggle="tooltip" data-placement="right" title="Entre 3 et 30 caractères">
 								<label for="prenom">
-								<i class="fa fa fa-user-o icon"></i>
-								<input class="input-field" type="text" id="prenom" placeholder="Saisir prénom"/>
+									<i class="fa fa fa-user-o icon"></i>
+									<input class="input-field" type="text" id="prenomB" name="prenomB" placeholder="Saisir prénom"/>
 								</label>
 							</div>
 							<div class="input-container">
 								<label for="age">
-								<i class="fa fa-calendar icon"></i>
-								<input class="input-field" type="number" id="age" placeholder="Saisir age"/>
+									<i class="fa fa-calendar icon"></i>
+									<input class="input-field" type="number" id="ageB" name="ageB" placeholder="Saisir age"  min="16" max="130"/>
 								</label>
 							<br />
 							</div>
-							<div class="input-container">
+							<div class="input-container" data-toggle="tooltip" data-placement="right" title="exemple@web.fr">
 								<label for="mail">
-								<i class="fa fa-envelope icon"></i>
-								<input class="input-field" type="email" id="mail" placeholder="Saisir email"/>
+									<i class="fa fa-envelope icon"></i>
+									<input class="input-field" type="email" id="mailB" name="mailB"placeholder="Saisir email"/>
 								</label>
 							<br />
 							</div>
-							<div class="input-container">
+							<div class="input-container" data-toggle="tooltip" data-placement="right" title="Au moins 8 caractères">
 								<label for="mdp">
-								<i class="fa fa-lock icon"></i>
-								<input class="input-field" type="password" id="mdp" placeholder="Saisir mot de passe"/>
+									<i class="fa fa-lock icon"></i>
+									<input class="input-field" type="password" id="mdpB" name="mdpB" placeholder="Saisir mot de passe"/>
 								</label>
 							<br />
 							</div>
@@ -79,18 +74,18 @@
 					<div class="connexion">
 						<h2>Connexion</h2>
 						
-						<form>
+						<form method="post" action="connexion_benevole">
 							<div class="input-container">
 								<label for="mail">
 									<i class="fa fa-envelope icon"></i>
-									<input class="input-field" type="email" id="mail" placeholder="Saisir mail"/>
+									<input class="input-field" type="email" id="mailC" name="mailC" placeholder="Saisir mail"/>
 								</label>
 							<br />
 							</div>
 							<div class="input-container">
 								<label for="mdp">
 									<i class="fa fa-lock icon"></i>
-									<input class="input-field" type="password" id="mdp" placeholder="Saisir mot de passe"/>
+									<input class="input-field" type="password" id="mdpC" name="mdpC" placeholder="Saisir mot de passe"/>
 								</label>
 							<br />
 							</div>
@@ -98,7 +93,7 @@
 							<input type="submit" value="Se connecter" />
 						</form>
 							<br />
-						<input type="button" class="btn btn-default" value="Pas encore inscrit ?" onClick="BenevoleInscription()">
+						<input type="button" class="btn btn-default" value="Pas encore inscrit ?" onClick="BenevoleInscription()"></br>
 					</div>
 				</div>
 			</section>
@@ -115,35 +110,35 @@
 					</div>
 					<div class="inscription">
 						<h2>Inscription</h2>
-						<form>
-							<div class="input-container">
+						<form method="post" action="inscription_association">
+							<div class="input-container" data-toggle="tooltip" data-placement="right" title="Entre 3 et 30 caractères">
 								<label for="nom">
 									<i class="fa fa-tag icon"></i>
-									<input class="input-field" type="text" id="nom" placeholder="Saisir nom d'association"/>
+									<input class="input-field" type="text" id="nomA" name="nomA" placeholder="Saisir nom d'association"/>
 								</label>
 							<br />
 							</div>
 
-							<div class="input-container">
+							<div class="input-container" data-toggle="tooltip" data-placement="right" title="9 chiffres">
 								<label for="SIREN">
 									<i class="fa fa-hashtag icon"></i>
-									<input class="input-field" type="number" id="SIREN" placeholder="Saisir numéro SIREN"/>
+									<input class="input-field" type="number" id="SIREN" name="SIREN" placeholder="Saisir numéro SIREN"/>
 								</label>
 								<br />
 							</div>
 
 							<div class="input-container">
-								<label for="mail">
+								<label for="mail"  data-toggle="tooltip" data-placement="right" title="exemple@web.fr">
 									<i class="fa fa-envelope icon"></i>
-									<input class="input-field" type="email" id="mail" placeholder="Saisir email"/>
+									<input class="input-field" type="email" id="mailA" name="mailA" placeholder="Saisir email"/>
 								</label>
 								<br />
 							</div>
 
-							<div class="input-container">
+							<div class="input-container"  data-toggle="tooltip" data-placement="right" title="Au moins 8 caractères">
 								<label for="mdp">
 									<i class="fa fa-lock icon"></i>
-									<input class="input-field" type="password" id="mdp" placeholder="Saisir mot de passe" />
+									<input class="input-field" type="password" id="mdpA" name="mdpA" placeholder="Saisir mot de passe" />
 								</label>
 								<br />
 							</div>
@@ -157,31 +152,30 @@
 					<div class="connexion">
 						<h2>Connexion</h2>
 
-						<form>
+						<form method="post" action="connexion_association">
 							<div class="input-container">
 								<label for="mail">
 									<i class="fa fa-envelope icon"></i>
-									<input class="input-field" type="email" id="mail"  placeholder="Saisir mail"/>
+									<input class="input-field" type="email" id="mailD" name="mailD"  placeholder="Saisir mail"/>
+									<br />
 								</label>
-								<br />
 							</div>
 							<div class="input-container">
 								<label for="mdp">
 									<i class="fa fa-lock icon"></i>
-									<input class="input-field" type="password" id="mdp"  placeholder="Saisir mot de passe"/>
-									</label>
-								<br />
+									<input class="input-field" type="password" id="mdpD" name="mdpD"  placeholder="Saisir mot de passe"/>
+									<br />
+								</label>
 							</div>
 
 							<input type="submit" value="Se connecter" />
 						</form>
 							<br />
 						<input type="button" class="btn btn-default" value="Pas encore inscrit ?" onClick="AssociationInscription()">
+						</br>
 					</div>
 				</div>
 			</section>
 		</div>
 	</body>
-
 </html>
-

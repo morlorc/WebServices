@@ -1,22 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
-  <display-name>WebServices</display-name>
-  <servlet>
-    <servlet-name>Accueil</servlet-name>
-    <servlet-class>controller.Accueil</servlet-class>
-    <load-on-startup>1</load-on-startup>
-  </servlet>
+	<display-name>WebServices</display-name>
+ 	<welcome-file-list>
+		<welcome-file>Accueil.jsp</welcome-file>
+	</welcome-file-list>
   <servlet>
     <servlet-name>Inscription_benevole</servlet-name>
     <servlet-class>controller.Inscription_benevole</servlet-class>
     <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
-    <servlet-name>Accueil</servlet-name>
-    <url-pattern>/accueil</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
     <servlet-name>Inscription_benevole</servlet-name>
     <url-pattern>/inscription_benevole</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Inscription_association</servlet-name>
+    <servlet-class>controller.Inscription_association</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Inscription_association</servlet-name>
+    <url-pattern>/inscription_association</url-pattern>
   </servlet-mapping>
 </web-app>
