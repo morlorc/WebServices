@@ -48,7 +48,7 @@
 							<div class="input-container">
 								<label for="age">
 									<i class="fa fa-calendar icon"></i>
-									<input class="input-field" type="number" id="ageB" name="ageB" placeholder="Saisir age"/>
+									<input class="input-field" type="number" id="ageB" name="ageB" placeholder="Saisir age" min="16" max="130"/>
 								</label>
 							<br />
 							</div>
