@@ -48,39 +48,39 @@ public class Accueil extends HttpServlet {
         }
     }
 
-    	private void validationNom( String nom ) throws Exception{
-    	    if ( nom != null && nom.trim().length() < 3 ) {
-    	        throw new Exception( "Le nom doit contenir au moins 3 caractères." );
-    	    }
-    	}
-    	
-    	private void validationPrenom( String prenom ) throws Exception{
-    	    if ( prenom != null && prenom.trim().length() < 3 ) {
-    	        throw new Exception( "Le prénom doit contenir au moins 3 caractères." );
-    	    }
-    	}
-    	
-        private void validationAge( String age ) throws Exception{
-        	/* a faire */
-        }
-        
-        private void validationEmail( String email ) throws Exception{
-            if ( email != null && email.trim().length() != 0 ) {
-                if ( !email.matches( "([^.@]+)(\\.[^.@]+)*@([^.@]+\\.)+([^.@]+)" ) ) {
-                    throw new Exception( "Merci de saisir une adresse mail valide." );
-                }
-            } else {
-                throw new Exception( "Merci de saisir une adresse mail." );
+	private void validationNom( String nom ) throws Exception{
+	    if ( nom != null && nom.trim().length() < 3 ) {
+	        throw new Exception( "Le nom doit contenir au moins 3 caractères." );
+	    }
+	}
+	
+	private void validationPrenom( String prenom ) throws Exception{
+	    if ( prenom != null && prenom.trim().length() < 3 ) {
+	        throw new Exception( "Le prénom doit contenir au moins 3 caractères." );
+	    }
+	}
+	
+    private void validationAge( String age ) throws Exception{
+    	/* a faire */
+    }
+    
+    private void validationEmail( String email ) throws Exception{
+        if ( email != null && email.trim().length() != 0 ) {
+            if ( !email.matches( "([^.@]+)(\\.[^.@]+)*@([^.@]+\\.)+([^.@]+)" ) ) {
+                throw new Exception( "Merci de saisir une adresse mail valide." );
             }
+        } else {
+            throw new Exception( "Merci de saisir une adresse mail." );
         }
-        
-        private void validationMotsDePasse( String motDePasse ) throws Exception{
-        	if (motDePasse != null && motDePasse.trim().length() != 0) {
-        		if (motDePasse.trim().length() < 3) {
-                    throw new Exception("Le mot de passe doit contenir au moins 3 caractères.");
-                }
-            } else {
-                throw new Exception("Merci de saisir votre mot de passe.");
+    }
+    
+    private void validationMotsDePasse( String motDePasse ) throws Exception{
+    	if (motDePasse != null && motDePasse.trim().length() != 0) {
+    		if (motDePasse.trim().length() < 3) {
+                throw new Exception("Le mot de passe doit contenir au moins 3 caractères.");
             }
+        } else {
+            throw new Exception("Merci de saisir votre mot de passe.");
         }
+    }
 }
