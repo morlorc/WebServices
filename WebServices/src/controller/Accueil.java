@@ -18,10 +18,8 @@ public class Accueil extends HttpServlet {
     public static final String CHAMP_EMAIL = "email";
     public static final String CHAMP_PASS = "motdepasse";
     
-    
 	public Accueil() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
