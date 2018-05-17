@@ -24,14 +24,14 @@ public class Inscription_association extends HttpServlet {
         String email = request.getParameter(CHAMP_EMAIL_AS);
         String motDePasse = request.getParameter(CHAMP_PASS_AS);
         
-        System.out.println(arg0);
-        System.out.println(arg0);
-        System.out.println(arg0);
-        System.out.println(arg0);
-        System.out.println(arg0);
-        
-        String[] tab = new String[9];
-		tab = siren.split("");
+        try {
+        	validationNom( nom );
+            validationSiren( siren );
+            validationEmail( email );
+            validationMotsDePasse( motDePasse );
+        } catch(Exception e) {
+        	System.out.println("Paramtres invalides");
+        }
       	
 	}
 	
@@ -72,12 +72,9 @@ public class Inscription_association extends HttpServlet {
     }
     
     private void validationSiren(String siren) throws Exception {
-    	if ( siren.length() != 9 || siren != null) {
+    	if ( siren.length() != 9 || siren != null || siren.isEmpty()) {
     		throw new Exception("Le fomat du SIREN est invalide");
-    	} else {
-    		String[] tab = new String[9];
-    		tab = siren.split("");
-    	}
+    	} 
     		
     }
 }
