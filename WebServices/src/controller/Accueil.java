@@ -44,6 +44,7 @@ public class Accueil extends HttpServlet {
             validationMotsDePasse( motDePasse );
         } catch (Exception e) {
             /* Gérer les erreurs de validation ici. */
+        	//Commentaire
         }
     }
 
