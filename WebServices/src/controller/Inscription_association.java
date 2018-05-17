@@ -13,7 +13,7 @@ public class Inscription_association extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
 	
-	public static final String VUE = "/WEB-INF/Accueil.jsp";
+	public static final String VUE = "/WEB-INF/InscriptionAssociation.jsp";
     public static final String CHAMP_NOM_AS = "nomA";
     public static final String CHAMP_SIREN_AS = "SIREN";
     public static final String CHAMP_EMAIL_AS = "mailA";
