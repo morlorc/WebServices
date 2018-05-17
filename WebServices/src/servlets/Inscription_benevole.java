@@ -93,8 +93,8 @@ public class Inscription_benevole extends HttpServlet {
     
     private void validationMotsDePasse( String motDePasse ) throws Exception{
     	if (motDePasse != null && motDePasse.trim().length() != 0) {
-    		if (motDePasse.trim().length() < 3) {
-                throw new Exception("Le mot de passe doit contenir au moins 3 caractères.");
+    		if (motDePasse.trim().length() < 8) {
+                throw new Exception("Le mot de passe doit contenir au moins 8 caractères.");
             }
         } else {
             throw new Exception("Merci de saisir votre mot de passe.");
@@ -102,5 +102,6 @@ public class Inscription_benevole extends HttpServlet {
 	    if (motDePasse.trim().length() > 100 ) {
 	        throw new Exception( "Le mot de passe ne peut dépasser 100 caractères" );
 	    }
+	    /* A rajouter la condition d'avoir un caractère spécial, un chiffre et une lettre*/
     }
 }
