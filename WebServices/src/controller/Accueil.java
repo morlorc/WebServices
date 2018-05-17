@@ -23,13 +23,13 @@ public class Accueil extends HttpServlet {
 	}
 
 	public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
-        /* Affichage de la page d'inscription */
+        // Affichage de la page d'inscription
 		this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );
 	}
-
+/*
     public void doPost( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
 
-        /* Récupération des champs du formulaire. */
+        // Récupération des champs du formulaire.
         String nom = request.getParameter( CHAMP_NOM );
         String prenom = request.getParameter( CHAMP_PRENOM );
         String age = request.getParameter( CHAMP_AGE );
@@ -43,7 +43,7 @@ public class Accueil extends HttpServlet {
             validationEmail( email );
             validationMotsDePasse( motDePasse );
         } catch (Exception e) {
-            /* Gérer les erreurs de validation ici. */
+            // Gérer les erreurs de validation ici.
         	//Commentaire
         }
     }
@@ -61,7 +61,7 @@ public class Accueil extends HttpServlet {
 	}
 	
     private void validationAge( String age ) throws Exception{
-    	/* a faire */
+    	// a faire
     }
     
     private void validationEmail( String email ) throws Exception{
@@ -82,5 +82,5 @@ public class Accueil extends HttpServlet {
         } else {
             throw new Exception("Merci de saisir votre mot de passe.");
         }
-    }
+    }*/
 }
