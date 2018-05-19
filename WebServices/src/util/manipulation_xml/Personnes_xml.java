@@ -3,31 +3,35 @@ package util.manipulation_xml;
 import util.JaxParser;
 import models.personnes.*;
 
-import java.io.File;
-import java.util.List;
+import java.util.Objects;
+
+import javax.xml.transform.stream.StreamSource;
+//import java.util.List;
 
 public class Personnes_xml {
 
-	public static void main(String[] args) {
-		try { //Le code suivant ne fonctionne pas sans bloc try/catch
-			
-			Personnes personnes = (Personnes) JaxParser.<Personnes>unmarshal(
-					models.personnes.Personnes.class, //Personnes.class ou Associations.class uniquement !
-					new File("WebContent\\personnes.xml")
+	private static Personnes unmarshal_personnes(StreamSource src) {
+		try {
+			return (Personnes) JaxParser.<Personnes>unmarshal(
+					models.personnes.Personnes.class,
+					src
 			);
-
-			List<Personne> personne_list = personnes.getPersonne();
-			for (int i=0; i < personne_list.size(); ++i) {
-				Personne p = personne_list.get(i);
-				System.out.println(p.getNom_pers());
-				System.out.println(p.getPrenom_pers());
-				System.out.println(p.getAge());
-				System.out.println(p.getMail_pers());
-				System.out.println(p.getMdp_pers());
-				System.out.println();
-			}
 		}catch (Exception e) {
 			e.printStackTrace();
+			return null;
 		}
 	}
+	
+	public static boolean existeDejaMail(String mail, StreamSource src){
+		Personnes p = unmarshal_personnes(src);
+		System.out.println("existeMail avec " + mail);
+		for (int i=0; i<p.getPersonne().size(); ++i) {
+			System.out.println(p.getPersonne().get(i).getMail_pers());
+			if (Objects.equals(mail, p.getPersonne().get(i).getMail_pers())) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
 }
