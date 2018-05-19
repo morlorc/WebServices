@@ -10,16 +10,17 @@ import javax.xml.transform.stream.StreamSource;
 
 public class JaxParser {
 	
-    public static <T> T unmarshal(Class<T> cl, File f) throws JAXBException
+	public static <T> T unmarshal(Class<T> cl, File f) throws JAXBException
     {
         return unmarshal(cl, new StreamSource(f));
     }
-	  public static <T> T unmarshal(Class<T> cl, Source s) throws JAXBException
-	    {
-	        JAXBContext ctx = JAXBContext.newInstance(cl);
-	        Unmarshaller u = ctx.createUnmarshaller();
-	        return u.unmarshal(s, cl).getValue();
-	    }
+    
+	public static <T> T unmarshal(Class<T> cl, Source s) throws JAXBException
+    {
+        JAXBContext ctx = JAXBContext.newInstance(cl);
+        Unmarshaller u = ctx.createUnmarshaller();
+        return u.unmarshal(s, cl).getValue();
+    }
 	
     public static <T> void marshal(T obj, File f) throws JAXBException
     {

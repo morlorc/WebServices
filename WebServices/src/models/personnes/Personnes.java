@@ -1,19 +1,21 @@
 package models.personnes;
 
+import java.util.List;
+
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
 
 public class Personnes {
 
-	private Personne[] personne;
+	private List<Personne> personne;
 
-    public Personne[] getPersonne ()
+    public List<Personne> getPersonne ()
     {
         return personne;
     }
 
-    public void setPersonne (Personne[] personne)
+    public void setPersonne (List<Personne> personne)
     {
         this.personne = personne;
     }
