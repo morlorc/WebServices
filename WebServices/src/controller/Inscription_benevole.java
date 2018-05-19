@@ -1,5 +1,7 @@
 package controller;
 
+import util.Util_Inscription_Benevole;
+
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -30,14 +32,6 @@ public class Inscription_benevole extends HttpServlet {
     	String resultat;
         Map<String, String> erreurs = new HashMap<String, String>();
     	
-    	/*System.out.println("Paramètres :");
-    	System.out.println(request.getParameter( CHAMP_NOM_BN ));
-    	System.out.println(request.getParameter( CHAMP_PRENOM_BN ));
-    	System.out.println(request.getParameter( CHAMP_AGE_BN ));
-    	System.out.println(request.getParameter( CHAMP_EMAIL_BN ));
-    	System.out.println(request.getParameter( CHAMP_PASS_BN ));*/
-        // Récupération des champs du formulaire
-    	
         String nom = request.getParameter( CHAMP_NOM_BN );
         String prenom = request.getParameter( CHAMP_PRENOM_BN );
         String age = request.getParameter( CHAMP_AGE_BN );
@@ -45,31 +39,31 @@ public class Inscription_benevole extends HttpServlet {
         String motDePasse = request.getParameter( CHAMP_PASS_BN );
       	
         try {
-        	validationNom( nom );
+        	Util_Inscription_Benevole.validationNom( nom );
         }catch (Exception e){
         	erreurs.put(CHAMP_NOM_BN, e.getMessage());
         }
         
         try {
-        	validationPrenom( prenom );
+        	Util_Inscription_Benevole.validationPrenom( prenom );
         }catch (Exception e){
         	erreurs.put(CHAMP_PRENOM_BN, e.getMessage());
         }
         
         try {
-        	validationAge( age );
+        	Util_Inscription_Benevole.validationAge( age );
         }catch (Exception e){
         	erreurs.put(CHAMP_AGE_BN, e.getMessage());
         }
         
         try {
-        	validationEmail( email );
+        	Util_Inscription_Benevole.validationEmail( email );
         }catch (Exception e){
         	erreurs.put(CHAMP_EMAIL_BN, e.getMessage());
         }
         
         try {
-        	validationMotsDePasse( motDePasse );
+        	Util_Inscription_Benevole.validationMotsDePasse( motDePasse );
         }catch (Exception e){
         	erreurs.put(CHAMP_PASS_BN, e.getMessage());
         }
@@ -84,63 +78,5 @@ public class Inscription_benevole extends HttpServlet {
         request.setAttribute( ATT_RESULTAT, resultat );
         
         this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );
-    }
-
-	private void validationNom( String nom ) throws Exception{
-	    if ( nom == null || nom.trim().length() < 3 ) {
-	        throw new Exception( "Le nom doit contenir au moins 3 caractères.<br />" );
-	    }
-	    else if (nom.trim().length() > 29 ) {
-	        throw new Exception( "Le nom doit contenir moins de 30 caractères.<br />" );
-	    }
-	}
-	
-	private void validationPrenom( String prenom ) throws Exception{
-	    if ( prenom == null || prenom.trim().length() < 3 ) {
-	        throw new Exception( "Le prénom doit contenir au moins 3 caractères.<br />" );
-	    	}
-	    else if (prenom.trim().length() > 29 ) {
-	        throw new Exception( "Le prénom doit contenir moins de 30 caractères.<br />" );
-	    }
-	}
-	
-    private void validationAge( String age ) throws Exception{
-    	if (age != "") {
-    		int age_i = Integer.parseInt(age);
-		    if ( age_i < 16) {
-		    	throw new Exception( "Vous devez avoir au moins 16 ans.<br />" );
-		    }
-		    else if (age_i > 130) {
-		    	throw new Exception( "Vous avez saisi un age trop grand.<br />" );
-		    }
-    	}else {
-    		throw new Exception("Veuillez saisir un âge.<br />");
-    	}
-    }
-    
-    private void validationEmail( String email ) throws Exception{
-        if ( email != null && email.trim().length() != 0 ) {
-            if ( !email.matches( "([^.@]+)(\\.[^.@]+)*@([^.@]+\\.)+([^.@]+)" ) ) {
-                throw new Exception( "Merci de saisir une adresse mail valide.<br />" );
-            }
-        } else {
-            throw new Exception( "Merci de saisir une adresse mail.<br />" );
-        }
-        if ( email.trim().length() > 100 ) {
-            throw new Exception( "L'addresse mail est trop longue.<br />" ); 
-        }
-    }
-    
-    private void validationMotsDePasse( String motDePasse ) throws Exception{
-    	if (motDePasse != null && motDePasse.trim().length() != 0) {
-    		if (motDePasse.trim().length() < 8) {
-                throw new Exception("Le mot de passe doit contenir au moins 8 caractères.<br />");
-            }
-        } else {
-            throw new Exception("Merci de saisir votre mot de passe.<br />");
-        }
-	    if (motDePasse.trim().length() > 100 ) {
-	        throw new Exception( "Le mot de passe ne peut dépasser 100 caractères.<br />" );
-	    }
     }
 }

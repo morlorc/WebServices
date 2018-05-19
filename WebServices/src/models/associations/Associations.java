@@ -1,4 +1,4 @@
-package models;
+package models.associations;
 
 import javax.xml.bind.annotation.XmlRootElement;
 

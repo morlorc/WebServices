@@ -1,15 +1,15 @@
-package models;
+package models.personnes;
 
 public class Candidatures
 {
-    private Candidature[] candidature;
+    private Candidature candidature;
 
-    public Candidature[] getCandidature ()
+    public Candidature getCandidature ()
     {
         return candidature;
     }
 
-    public void setCandidature (Candidature[] candidature)
+    public void setCandidature (Candidature candidature)
     {
         this.candidature = candidature;
     }

@@ -1,4 +1,4 @@
-package models;
+package models.associations;
 
 public class Evenement
 {
