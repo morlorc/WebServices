@@ -13,6 +13,22 @@ public class Personne
     private Candidatures candidatures;
 
     private String mail_pers;
+    
+    public Personne(String nom, String prenom, String _age, String email, String motDePasse) {
+    	nom_pers = nom;
+    	prenom_pers = prenom;
+    	age = _age;
+    	mail_pers = email;
+    	mdp_pers = motDePasse;
+    }
+    
+    public Personne() {
+    	nom_pers = "";
+    	prenom_pers = "";
+    	age = "";
+    	mail_pers = "";
+    	mdp_pers = "";
+    }
 
     public String getAge ()
     {

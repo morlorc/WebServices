@@ -5,6 +5,9 @@ import models.personnes.*;
 
 import java.util.Objects;
 
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
 import javax.xml.transform.stream.StreamSource;
 //import java.util.List;
 
@@ -32,6 +35,23 @@ public class Personnes_xml {
 			}
 		}
 		return false;
+	}
+	
+	public static void ajouterPersonne(StreamSource src, String nom, String prenom, String age, String email, String motDePasse) {
+		try {
+			Personnes p = unmarshal_personnes(src);
+			JAXBContext ctx;
+			ctx = JAXBContext.newInstance(models.personnes.Personnes.class);
+	        Marshaller m = ctx.createMarshaller();
+	        m.setProperty(Marshaller.JAXB_ENCODING, "UTF-8");
+	        m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+	        //Personnes p = new Personne (nom, prenom, age, email, motDePasse);
+	        p.getPersonne().add(new Personne (nom, prenom, age, email, motDePasse));
+	        m.marshal(p,  System.out);
+		} catch (JAXBException e) {
+			e.printStackTrace();
+		}
+		//(Personnes) JaxParser.<Personnes>marshal( models.personnes.Personnes.class, src);
 	}
 	
 }

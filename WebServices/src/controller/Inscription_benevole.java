@@ -75,8 +75,12 @@ public class Inscription_benevole extends HttpServlet {
 	        	erreurs.put(CHAMP_PASS_BN, e.getMessage());
 	        }
         }
-        
+
         if ( erreurs.isEmpty() ) {
+        	Personnes_xml.ajouterPersonne(
+        			new StreamSource( request.getServletContext().getResourceAsStream( XML )),
+        			nom, prenom, age, email, motDePasse
+        	);
             resultat = "Succès de l'inscription.";
         } else {
             resultat = "Échec de l'inscription.";
