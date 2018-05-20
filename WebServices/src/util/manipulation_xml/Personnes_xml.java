@@ -54,4 +54,20 @@ public class Personnes_xml {
 		//(Personnes) JaxParser.<Personnes>marshal( models.personnes.Personnes.class, src);
 	}
 	
+	public static boolean authentificationValide(String mail, String mdp, StreamSource src) {
+		Personnes p = unmarshal_personnes(src);
+		System.out.println("authentificationValide avec " + mail + " ; " + mdp);
+		for (int i=0; i<p.getPersonne().size(); ++i) {
+			System.out.println(p.getPersonne().get(i).getMail_pers());
+			if (Objects.equals(mail, p.getPersonne().get(i).getMail_pers())) {
+				if (Objects.equals(mdp, p.getPersonne().get(i).getMdp_pers())) {
+					return true;
+				} else {
+					return false;
+				}
+			}
+		}
+		return false;
+	}
+	
 }
