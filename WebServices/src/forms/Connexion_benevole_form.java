@@ -1,6 +1,7 @@
 package forms;
 
-import java.io.File;
+import util.manipulation_xml.Personnes_xml;
+
 import java.util.HashMap;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
@@ -8,7 +9,6 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Unmarshaller;
 
 import models.personnes.Personne;
-import models.personnes.Personnes;
 import util.Util_Connexion;
 
 public final class Connexion_benevole_form {
@@ -17,7 +17,6 @@ public final class Connexion_benevole_form {
 	private static final String CHAMP_PASS_BN = "mdpC";
 	private Map<String, String> ATT_ERREURS = new HashMap<String, String>();
 	private static String ATT_RESULTAT = "resultat";
-	/* private static final String USERS_PATH = "/WEB-INF/database/utilisateurs.xml";*/
 
 	public String getResultat() {
 		return ATT_RESULTAT;
@@ -53,20 +52,20 @@ public final class Connexion_benevole_form {
 		/* Initialisation du résultat global de la validation. */
 		if (ATT_ERREURS.isEmpty()) {
 			try {
-				personne = verifierLogins(email, motDePasse, request);
-				ATT_RESULTAT = "Succès de la connexion.";
+				personne = Personnes_xml.authentification(email, motDePasse);
+				ATT_RESULTAT = "Succ�s de la connexion.";
 			} catch (Exception e) {
 				setErreur("wrongCredentials", e.getMessage());
-				ATT_RESULTAT = "échec de la connexion.";
+				ATT_RESULTAT = "Echec de la connexion.";
 			}
 		} else {
-			ATT_RESULTAT = "échec de la connexion.";
+			ATT_RESULTAT = "Echec de la connexion.";
 		}
-
+		
 		return personne;
 	}
 
-	private Personne verifierLogins(String email, String motDePasse, HttpServletRequest request) throws Exception {
+	/*private Personne verifierLogins(String email, String motDePasse, HttpServletRequest request) throws Exception {
 		JAXBContext jaxbContext = JAXBContext.newInstance(Personnes.class);
 		Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
 		Personnes listPersonnes = (Personnes) jaxbUnmarshaller
@@ -76,7 +75,7 @@ public final class Connexion_benevole_form {
 				return u;
 		}
 		throw new Exception("Aucun bénévole n'est enregistré avec cet email et ce mot de passe");
-	}
+	}*/
 	/*
 	 * Ajoute un message correspondant au champ sp�cifi� � la map des erreurs.
 	 */

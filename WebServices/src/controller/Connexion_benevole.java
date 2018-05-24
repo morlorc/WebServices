@@ -22,7 +22,7 @@ public class Connexion_benevole extends HttpServlet {
     public static final String ATT_PERSONNE = "personne";
     public static final String ATT_FORM = "form";
 	public static final String VUE = "/WEB-INF/ConnectionBenevole.jsp";
-		
+	
     public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
         /* Affichage de la page d'inscription */
         this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );

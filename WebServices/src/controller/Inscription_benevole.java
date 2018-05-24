@@ -1,6 +1,6 @@
 package controller;
 
-import util.Util_Inscription_Benevole;
+import util.Util_Inscription;
 import util.manipulation_xml.Personnes_xml;
 
 import java.io.File;
@@ -49,31 +49,31 @@ public class Inscription_benevole extends HttpServlet {
         } else {
         
 	        try {
-	        	Util_Inscription_Benevole.validationNom( nom );
+	        	Util_Inscription.validationNom( nom );
 	        }catch (Exception e){
 	        	erreurs.put(CHAMP_NOM_BN, e.getMessage());
 	        }
 	        
 	        try {
-	        	Util_Inscription_Benevole.validationPrenom( prenom );
+	        	Util_Inscription.validationPrenom( prenom );
 	        }catch (Exception e){
 	        	erreurs.put(CHAMP_PRENOM_BN, e.getMessage());
 	        }
 	        
 	        try {
-	        	Util_Inscription_Benevole.validationAge( age );
+	        	Util_Inscription.validationAge( age );
 	        }catch (Exception e){
 	        	erreurs.put(CHAMP_AGE_BN, e.getMessage());
 	        }
 	        
 	        try {
-	        	Util_Inscription_Benevole.validationEmail( email );
+	        	Util_Inscription.validationEmail( email );
 	        }catch (Exception e){
 	        	erreurs.put(CHAMP_EMAIL_BN, e.getMessage());
 	        }
 	        
 	        try {
-	        	Util_Inscription_Benevole.validationMotsDePasse( motDePasse );
+	        	Util_Inscription.validationMotsDePasse( motDePasse );
 	        }catch (Exception e){
 	        	erreurs.put(CHAMP_PASS_BN, e.getMessage());
 	        }

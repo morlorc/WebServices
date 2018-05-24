@@ -7,6 +7,8 @@ import java.io.File;
 import java.util.Objects;
 
 public class Personnes_xml {
+	
+	private static final String XML = "D:\\Users\\Pierre\\Desktop\\WebsGit\\WebServices\\WebServices\\WebContent\\personnes.xml";
 
 	private static Personnes unmarshal_personnes(File src) {
 		try {
@@ -40,20 +42,20 @@ public class Personnes_xml {
 		}
 	}
 	
-	public static boolean authentificationValide(String mail, String mdp, File src) {
-		Personnes p = unmarshal_personnes(src);
+	public static Personne authentification(String mail, String mdp) throws Exception{
+		Personnes p = unmarshal_personnes(new File(XML));
 		System.out.println("authentificationValide avec " + mail + " ; " + mdp);
 		for (int i=0; i<p.getPersonne().size(); ++i) {
 			System.out.println(p.getPersonne().get(i).getMail_pers());
 			if (Objects.equals(mail, p.getPersonne().get(i).getMail_pers())) {
 				if (Objects.equals(mdp, p.getPersonne().get(i).getMdp_pers())) {
-					return true;
+					return p.getPersonne().get(i);
 				} else {
-					return false;
+					throw new Exception("Les informations ne permettent pas de vous identifier.<br/>");
 				}
 			}
 		}
-		return false;
+		throw new Exception("Les informations ne permettent pas de vous identifier.<br/>");
 	}
 	
 }
