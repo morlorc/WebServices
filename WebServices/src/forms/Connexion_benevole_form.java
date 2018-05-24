@@ -54,7 +54,7 @@ public final class Connexion_benevole_form {
 			try {
 				File f = new File(Config.getChemin()+"personnes.xml");
 				personne = Personnes_xml.authentification(email, motDePasse, f);
-				ATT_RESULTAT = "Succï¿½s de la connexion.";
+				ATT_RESULTAT = "Succès de la connexion.";
 			} catch (Exception e) {
 				setErreur("wrongCredentials", e.getMessage());
 				ATT_RESULTAT = "Echec de la connexion.";

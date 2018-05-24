@@ -46,8 +46,8 @@ public class Personnes_xml {
 	}
 	
 	public static Personne authentification(String mail, String mdp, File src) throws Exception{
+		System.out.println("authentificationValide avec " + mail + " ; " + mdp + " " + src.getAbsolutePath());
 		Personnes p = JaxParser.unmarshal(Personnes.class, src );
-		System.out.println("authentificationValide avec " + mail + " ; " + mdp);
 		for (int i=0; i<p.getPersonne().size(); ++i) {
 			//System.out.println(p.getPersonne().get(i).getMail_pers());
 			if (Objects.equals(mail, p.getPersonne().get(i).getMail_pers())) {
