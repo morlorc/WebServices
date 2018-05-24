@@ -83,7 +83,7 @@
 							<div class="input-container">
 								<label for="mail">
 									<i class="fa fa-envelope icon"></i>
-									<input class="input-field" type="email" id="mailC" value="${param.mailC}"name="mailC" placeholder="Saisir mail"/>
+									<input class="input-field" type="email" id="mailC" value="${param.mailC}" name="mailC" placeholder="Saisir mail"/>
 								</label>
 							<br />
 							</div>

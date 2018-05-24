@@ -25,7 +25,6 @@ public class Connexion_benevole extends HttpServlet {
 	
     @Override
 	public void init() throws ServletException {
-		// TODO Auto-generated method stub
 		super.init();
 		System.err.println(getServletContext().getInitParameter("localDirectoryPath"));
 		Config.setChemin(getServletContext().getInitParameter("localDirectoryPath"));

@@ -2,6 +2,7 @@ package util;
 
 public class Util_Inscription {
 	public static void validationNom( String nom ) throws Exception{
+		System.out.println(nom);
 	    if ( nom == null || nom.trim().length() < 3 ) {
 	        throw new Exception( "Le nom doit contenir au moins 3 caractères.<br />" );
 	    }
@@ -11,6 +12,7 @@ public class Util_Inscription {
 	}
 		
     public static void validationEmail( String email ) throws Exception{
+    	//System.out.println(email);
         if ( email != null && email.trim().length() != 0 ) {
             if ( !email.matches( "([^.@]+)(\\.[^.@]+)*@([^.@]+\\.)+([^.@]+)<br />" ) ) {
                 throw new Exception( "Merci de saisir une adresse mail valide.<br />" );
@@ -24,6 +26,7 @@ public class Util_Inscription {
     }
     
     public static void validationMotsDePasse( String motDePasse ) throws Exception{
+    	//System.out.println(motDePasse);
     	if (motDePasse != null && motDePasse.trim().length() != 0) {
     		if (motDePasse.trim().length() < 8) {
                 throw new Exception("Le mot de passe doit contenir au moins 8 caractères.<br />");
@@ -38,13 +41,14 @@ public class Util_Inscription {
     }
     
     public static void validationSiren(String siren) throws Exception {
+    	//System.out.println(siren);
     	if ( siren.length() != 9 || siren != null || siren.isEmpty()) {
     		throw new Exception("Le fomat du SIREN est invalide.<br />");
     	} 
-    		
     }
 
 	public static void validationPrenom( String prenom ) throws Exception{
+		//System.out.println(prenom);
 	    if ( prenom == null || prenom.trim().length() < 3 ) {
 	        throw new Exception( "Le prénom doit contenir au moins 3 caractères.<br />" );
 	    	}
@@ -54,6 +58,7 @@ public class Util_Inscription {
 	}
 	
 	public static void validationAge( String age ) throws Exception{
+		//System.out.println(age);
     	if (age != "") {
     		int age_i = Integer.parseInt(age);
 		    if ( age_i < 16) {
