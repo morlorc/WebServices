@@ -1,6 +1,5 @@
 package controller;
 
-
 import java.io.IOException;
 
 import javax.servlet.ServletException;
@@ -18,7 +17,6 @@ public class Connexion_benevole extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 	
-
     public static final String ATT_PERSONNE = "personne";
     public static final String ATT_FORM = "form";
 	public static final String VUE = "/WEB-INF/ConnectionBenevole.jsp";

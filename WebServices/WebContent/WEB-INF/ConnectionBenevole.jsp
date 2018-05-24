@@ -99,8 +99,9 @@
 						</form>
 							<div class="alert alert-danger alert-dismissible fade show">
 								<button type="button" class="close" data-dismiss="alert">&times;</button>
-								<p>${erreurs['mailC']}
-								${erreurs['mdpC']}</p>
+								<p>${form.erreurs['mailC']}
+								${form.erreurs['mdpC']}
+								${form.erreurs['wrongCredentials']}</p>
 							</div>
 							<br />
 						<input type="button" class="btn btn-default" value="Pas encore inscrit ?" onClick="BenevoleInscription()"></br>

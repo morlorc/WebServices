@@ -23,7 +23,7 @@ public class Inscription_benevole extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	public static final String VUE = "/WEB-INF/InscriptionBenevole.jsp";
-	public static final String XML = "D:\\Users\\Pierre\\Desktop\\WebsGit\\WebServices\\WebServices\\WebContent\\personnes.xml";
+	//public static final String XML = "D:\\Users\\Pierre\\Desktop\\WebsGit\\WebServices\\WebServices\\WebContent\\personnes.xml";
     public static final String CHAMP_NOM_BN = "nomB";
     public static final String CHAMP_PRENOM_BN = "prenomB";
     public static final String CHAMP_AGE_BN = "ageB";
@@ -43,7 +43,7 @@ public class Inscription_benevole extends HttpServlet {
         String email = request.getParameter( CHAMP_EMAIL_BN );
         String motDePasse = request.getParameter( CHAMP_PASS_BN );
         
-        if (Personnes_xml.existeDejaMail( email, new File (XML)) ) {
+        if (Personnes_xml.existeDejaMail( email ) ) {
         //if (Personnes_xml.existeDejaMail( email, new StreamSource( request.getServletContext().getResourceAsStream( XML ))) ) {
         	erreurs.put(CHAMP_EMAIL_BN, "Un compte existe déjà avec cette adresse.");
         } else {
@@ -80,10 +80,7 @@ public class Inscription_benevole extends HttpServlet {
         }
 
         if ( erreurs.isEmpty() ) {
-        	Personnes_xml.ajouterPersonne(
-        			new File( XML ),
-        			nom, prenom, age, email, motDePasse
-        	);
+        	Personnes_xml.ajouterPersonne(nom, prenom, age, email, motDePasse);
             resultat = "Succès de l'inscription.";
         } else {
             resultat = "Échec de l'inscription.";

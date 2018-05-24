@@ -5,8 +5,6 @@ import util.manipulation_xml.Personnes_xml;
 import java.util.HashMap;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.Unmarshaller;
 
 import models.personnes.Personne;
 import util.Util_Connexion;
@@ -27,7 +25,7 @@ public final class Connexion_benevole_form {
 	}
 
 	public Personne connecterPersonne(HttpServletRequest request) {
-		/* RÃ©cupÃ©ration des champs du formulaire */
+		/* Récupération des champs du formulaire */
 		String email = getValeurChamp(request, CHAMP_EMAIL_BN);
 		String motDePasse = getValeurChamp(request, CHAMP_PASS_BN);
 
@@ -49,7 +47,7 @@ public final class Connexion_benevole_form {
 		}
 		personne.setMdp_pers(motDePasse);
 
-		/* Initialisation du rÃ©sultat global de la validation. */
+		/* Initialisation du résultat global de la validation. */
 		if (ATT_ERREURS.isEmpty()) {
 			try {
 				personne = Personnes_xml.authentification(email, motDePasse);
@@ -65,26 +63,15 @@ public final class Connexion_benevole_form {
 		return personne;
 	}
 
-	/*private Personne verifierLogins(String email, String motDePasse, HttpServletRequest request) throws Exception {
-		JAXBContext jaxbContext = JAXBContext.newInstance(Personnes.class);
-		Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
-		Personnes listPersonnes = (Personnes) jaxbUnmarshaller
-				.unmarshal(new File(request.getServletContext().getRealPath(USERS_PATH)));
-		for (Personne u : listPersonnes.getPersonne()) {
-			if (u.getMail_pers().equals(email) && u.getMdp_pers().equals(motDePasse))
-				return u;
-		}
-		throw new Exception("Aucun bÃ©nÃ©vole n'est enregistrÃ© avec cet email et ce mot de passe");
-	}*/
 	/*
-	 * Ajoute un message correspondant au champ spï¿½cifiï¿½ ï¿½ la map des erreurs.
+	 * Ajoute un message correspondant au champ spécifié à la map des erreurs.
 	 */
 	private void setErreur(String champ, String message) {
 		ATT_ERREURS.put(champ, message);
 	}
 
 	/*
-	 * Mï¿½thode utilitaire qui retourne null si un champ est vide, et son contenu
+	 * Méthode utilitaire qui retourne null si un champ est vide, et son contenu
 	 * sinon.
 	 */
 	private static String getValeurChamp(HttpServletRequest request, String nomChamp) {
