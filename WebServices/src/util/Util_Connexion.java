@@ -3,6 +3,7 @@ package util;
 import java.util.Objects;
 
 public class Util_Connexion {
+	
 	public static void mailVide(String mail) throws Exception{
 		System.out.println("Util_Connexion_Benevole.mailVide : " + mail);
 		if (Objects.equals(mail, null) || mail.isEmpty()) {
