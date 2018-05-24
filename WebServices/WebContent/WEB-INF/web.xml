@@ -4,13 +4,17 @@
  	<welcome-file-list>
 		<welcome-file>Accueil.jsp</welcome-file>
 	</welcome-file-list>
-  <servlet>
-    <servlet-name>Inscription_association</servlet-name>
-    <servlet-class>controller.Inscription_association</servlet-class>
-    <load-on-startup>1</load-on-startup>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Inscription_association</servlet-name>
-    <url-pattern>/inscription_association</url-pattern>
-  </servlet-mapping>
+	<servlet>
+		<servlet-name>Inscription_association</servlet-name>
+		<servlet-class>controller.Inscription_association</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+  		<servlet-name>Inscription_association</servlet-name>
+		<url-pattern>/inscription_association</url-pattern>
+	</servlet-mapping>
+	<context-param>
+		<param-name>localDirectoryPath</param-name>
+		<param-value>C:\Eclipse_Workspace\WebServices\WebContent\WEB-INF\bdd</param-value>
+	</context-param>
 </web-app>

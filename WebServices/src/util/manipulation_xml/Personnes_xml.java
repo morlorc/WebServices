@@ -6,9 +6,14 @@ import models.personnes.*;
 import java.io.File;
 import java.util.Objects;
 
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+@XmlType(propOrder= {"mdp_pers","nom_pers","prenom_pers","age","mail_pers","nom_event","date_debut","date_fin","etat"})
+@XmlRootElement
+
 public class Personnes_xml {
 	
-	private static final String XML = "D:\\Users\\Pierre\\Desktop\\WebsGit\\WebServices\\WebServices\\WebContent\\personnes.xml";
+	//private static final String XML = "D:\\Users\\Pierre\\Desktop\\WebsGit\\WebServices\\WebServices\\WebContent\\personnes.xml";
 
 	private static Personnes unmarshal_personnes(File src) {
 		try {
@@ -42,8 +47,8 @@ public class Personnes_xml {
 		}
 	}
 	
-	public static Personne authentification(String mail, String mdp) throws Exception{
-		Personnes p = unmarshal_personnes(new File(XML));
+	public static Personne authentification(String mail, String mdp, File src) throws Exception{
+		Personnes p = JaxParser.unmarshal(Personnes.class, src );
 		System.out.println("authentificationValide avec " + mail + " ; " + mdp);
 		for (int i=0; i<p.getPersonne().size(); ++i) {
 			System.out.println(p.getPersonne().get(i).getMail_pers());

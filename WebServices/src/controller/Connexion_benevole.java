@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import forms.Connexion_benevole_form;
 import models.personnes.Personne;
+import util.Config;
 
 @WebServlet(urlPatterns = "/connexion_benevole")
 
@@ -23,7 +24,17 @@ public class Connexion_benevole extends HttpServlet {
     public static final String ATT_FORM = "form";
 	public static final String VUE = "/WEB-INF/ConnectionBenevole.jsp";
 	
-    public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
+	
+    @Override
+	public void init() throws ServletException {
+		// TODO Auto-generated method stub
+		super.init();
+		System.err.println(getServletContext().getInitParameter("localDirectoryPath"));
+		Config.setChemin(getServletContext().getInitParameter("localDirectoryPath"));
+		System.err.println("chemin="+Config.getChemin());
+	}
+
+	public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
         /* Affichage de la page d'inscription */
         this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );
     }
