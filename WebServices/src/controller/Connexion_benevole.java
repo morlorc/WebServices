@@ -1,7 +1,6 @@
 package controller;
 
-import util.Util_Connexion_Benevole;
-import util.Util_Inscription_Benevole;
+import util.Util_Connexion;
 import util.manipulation_xml.Personnes_xml;
 
 import java.io.File;
@@ -42,14 +41,14 @@ public class Connexion_benevole extends HttpServlet {
         } else {
         	System.out.println("Echec connexion");
         	try {
-        		Util_Connexion_Benevole.mailVide(email);
+        		Util_Connexion.mailVide(email);
         	} catch (Exception e) {
         		System.out.println("Mail vide");
         		erreurs.put(CHAMP_EMAIL_BN, e.getMessage());
         	}
         	
         	try {
-        		Util_Connexion_Benevole.mdpVide(motDePasse);
+        		Util_Connexion.mdpVide(motDePasse);
         	} catch (Exception e) {
         		System.out.println("Mdp vide");
         		erreurs.put(CHAMP_PASS_BN, e.getMessage());

@@ -1,6 +1,6 @@
 package controller;
 
-import util.Util_Inscription_Association;
+import util.Util_Inscription;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -34,25 +34,25 @@ public class Inscription_association extends HttpServlet {
         String motDePasse = request.getParameter(CHAMP_PASS_AS);
         
         try {
-        	Util_Inscription_Association.validationNom( nom );
+        	Util_Inscription.validationNom( nom );
         } catch(Exception e) {
         	erreurs.put(CHAMP_NOM_AS, e.getMessage());
         }
         
         try {
-        	Util_Inscription_Association.validationSiren( siren );
+        	Util_Inscription.validationSiren( siren );
         } catch(Exception e) {
         	erreurs.put(CHAMP_SIREN_AS, e.getMessage());
         }
         
         try {
-        	Util_Inscription_Association.validationEmail( email );
+        	Util_Inscription.validationEmail( email );
         } catch(Exception e) {
         	erreurs.put(CHAMP_EMAIL_AS, e.getMessage());
         }
         
         try {
-        	Util_Inscription_Association.validationMotsDePasse( motDePasse );
+        	Util_Inscription.validationMotsDePasse( motDePasse );
         } catch(Exception e) {
         	erreurs.put(CHAMP_PASS_AS, e.getMessage());
         }
