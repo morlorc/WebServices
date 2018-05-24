@@ -1,32 +1,39 @@
 package controller;
 
+import util.Util_Inscription_Benevole;
+import util.manipulation_xml.Personnes_xml;
+
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.xml.transform.stream.StreamSource;
+
+@WebServlet(urlPatterns = "/inscription_benevole")
 
 public class Inscription_benevole extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 	
-	public static final String VUE = "/WEB-INF/Accueil.jsp";
+	public static final String VUE = "/WEB-INF/InscriptionBenevole.jsp";
+	public static final String XML = "personnes.xml";
     public static final String CHAMP_NOM_BN = "nomB";
     public static final String CHAMP_PRENOM_BN = "prenomB";
     public static final String CHAMP_AGE_BN = "ageB";
     public static final String CHAMP_EMAIL_BN = "mailB";
     public static final String CHAMP_PASS_BN = "mdpB";
+    public static final String ATT_ERREURS  = "erreurs";
+    public static final String ATT_RESULTAT = "resultat";
 
     public void doPost( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
 
-    	System.out.println("Paramètres :");
-    	System.out.println(request.getParameter( CHAMP_NOM_BN ));
-    	System.out.println(request.getParameter( CHAMP_PRENOM_BN ));
-    	System.out.println(request.getParameter( CHAMP_AGE_BN ));
-    	System.out.println(request.getParameter( CHAMP_EMAIL_BN ));
-    	System.out.println(request.getParameter( CHAMP_PASS_BN ));
-        /* Récupération des champs du formulaire. */
+    	String resultat;
+        Map<String, String> erreurs = new HashMap<String, String>();
     	
         String nom = request.getParameter( CHAMP_NOM_BN );
         String prenom = request.getParameter( CHAMP_PRENOM_BN );
@@ -34,79 +41,54 @@ public class Inscription_benevole extends HttpServlet {
         String email = request.getParameter( CHAMP_EMAIL_BN );
         String motDePasse = request.getParameter( CHAMP_PASS_BN );
       	
-        /*System.out.println("nom: " + nom);
-        System.out.println("prenom: " + prenom);
-        System.out.println("age: " + age);
-        System.out.println("email: " + email);
-        System.out.println("motDePasse: " + motDePasse); */
-        try {
-            validationNom( nom );
-            validationPrenom( prenom );
-            validationAge( age );
-            validationEmail( email );
-            validationMotsDePasse( motDePasse );
-        } catch (Exception e) {
-             //Gérer les erreurs de validation ici.
-        	System.out.println("Problème dans les paramètres !");
+        if (Personnes_xml.existeDejaMail( email, new StreamSource( request.getServletContext().getResourceAsStream( XML ))) ) {
+        	erreurs.put(CHAMP_EMAIL_BN, "Un compte existe déjà avec cette adresse.");
+        } else {
+        
+	        try {
+	        	Util_Inscription_Benevole.validationNom( nom );
+	        }catch (Exception e){
+	        	erreurs.put(CHAMP_NOM_BN, e.getMessage());
+	        }
+	        
+	        try {
+	        	Util_Inscription_Benevole.validationPrenom( prenom );
+	        }catch (Exception e){
+	        	erreurs.put(CHAMP_PRENOM_BN, e.getMessage());
+	        }
+	        
+	        try {
+	        	Util_Inscription_Benevole.validationAge( age );
+	        }catch (Exception e){
+	        	erreurs.put(CHAMP_AGE_BN, e.getMessage());
+	        }
+	        
+	        try {
+	        	Util_Inscription_Benevole.validationEmail( email );
+	        }catch (Exception e){
+	        	erreurs.put(CHAMP_EMAIL_BN, e.getMessage());
+	        }
+	        
+	        try {
+	        	Util_Inscription_Benevole.validationMotsDePasse( motDePasse );
+	        }catch (Exception e){
+	        	erreurs.put(CHAMP_PASS_BN, e.getMessage());
+	        }
         }
-    }
 
-	private void validationNom( String nom ) throws Exception{
-	    if ( nom == null || nom.trim().length() < 3 ) {
-	        throw new Exception( "Le nom doit contenir au moins 3 caractères." );
-	    }
-	    else if (nom.trim().length() > 29 ) {
-	        throw new Exception( "Le nom doit contenir moins de 30 caractères." );
-	    }
-	}
-	
-	private void validationPrenom( String prenom ) throws Exception{
-	    if ( prenom == null || prenom.trim().length() < 3 ) {
-	        throw new Exception( "Le prénom doit contenir au moins 3 caractères." );
-	    	}
-	    else if (prenom.trim().length() > 29 ) {
-	        throw new Exception( "Le prénom doit contenir moins de 30 caractères." );
-	    }
-	}
-	
-    private void validationAge( String age ) throws Exception{
-    	if (age != null) {
-    		int age_i = Integer.parseInt(age);
-		    if ( age_i < 16) {
-		    	throw new Exception( "Vous devez avoir au moins 16 ans." );
-		    }
-		    else if (age_i > 130) {
-		    	throw new Exception( "Vous avez saisi un age trop grand" );
-		    }
-    	}else {
-    		throw new Exception("Veuillez saisir un âge");
-    	}
-    }
-    
-    private void validationEmail( String email ) throws Exception{
-        if ( email != null && email.trim().length() != 0 ) {
-            if ( !email.matches( "([^.@]+)(\\.[^.@]+)*@([^.@]+\\.)+([^.@]+)" ) ) {
-                throw new Exception( "Merci de saisir une adresse mail valide." );
-            }
+        if ( erreurs.isEmpty() ) {
+        	Personnes_xml.ajouterPersonne(
+        			new StreamSource( request.getServletContext().getResourceAsStream( XML )),
+        			nom, prenom, age, email, motDePasse
+        	);
+            resultat = "Succès de l'inscription.";
         } else {
-            throw new Exception( "Merci de saisir une adresse mail." );
+            resultat = "Échec de l'inscription.";
         }
-        if ( email.trim().length() > 100 ) {
-            throw new Exception( "L'addresse mail est trop longue" ); 
-        }
-    }
-    
-    private void validationMotsDePasse( String motDePasse ) throws Exception{
-    	if (motDePasse != null && motDePasse.trim().length() != 0) {
-    		if (motDePasse.trim().length() < 8) {
-                throw new Exception("Le mot de passe doit contenir au moins 8 caractères.");
-            }
-        } else {
-            throw new Exception("Merci de saisir votre mot de passe.");
-        }
-	    if (motDePasse.trim().length() > 100 ) {
-	        throw new Exception( "Le mot de passe ne peut dépasser 100 caractères" );
-	    }
-	    /* A rajouter la condition d'avoir un caractère spécial, un chiffre et une lettre*/
+        
+        request.setAttribute( ATT_ERREURS, erreurs );
+        request.setAttribute( ATT_RESULTAT, resultat );
+        
+        this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );
     }
 }
