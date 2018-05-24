@@ -1,20 +1,20 @@
 package forms;
 
-import util.manipulation_xml.Personnes_xml;
+import util.manipulation_xml.Associations_xml;
 
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
-import models.personnes.Personne;
+import models.associations.Association;
 import util.Config;
 import util.Util_Connexion;
 
-public final class Connexion_benevole_form {
+public final class Connexion_association_form {
 
-	private static final String CHAMP_EMAIL_BN = "mailC";
-	private static final String CHAMP_PASS_BN = "mdpC";
+	private static final String CHAMP_EMAIL_BN = "mailD";
+	private static final String CHAMP_PASS_BN = "mdpD";
 	private Map<String, String> ATT_ERREURS = new HashMap<String, String>();
 	private static String ATT_RESULTAT = "resultat";
 
@@ -26,12 +26,12 @@ public final class Connexion_benevole_form {
 		return ATT_ERREURS;
 	}
 
-	public Personne connecterPersonne(HttpServletRequest request) {
+	public Association connecterAssociation(HttpServletRequest request) {
 		/* R�cup�ration des champs du formulaire */
 		String email = getValeurChamp(request, CHAMP_EMAIL_BN);
 		String motDePasse = getValeurChamp(request, CHAMP_PASS_BN);
 
-		Personne personne = new Personne();
+		Association association = new Association();
 
 		/* Validation du champ email. */
 		try {
@@ -39,7 +39,7 @@ public final class Connexion_benevole_form {
 		} catch (Exception e) {
 			setErreur(CHAMP_EMAIL_BN, e.getMessage());
 		}
-		personne.setMail_pers(email);
+		association.setMail(email);
 
 		/* Validation du champ mot de passe. */
 		try {
@@ -47,13 +47,13 @@ public final class Connexion_benevole_form {
 		} catch (Exception e) {
 			setErreur(CHAMP_PASS_BN, e.getMessage());
 		}
-		personne.setMdp_pers(motDePasse);
+		association.setMdp(motDePasse);
 
 		/* Initialisation du résultat global de la validation. */
 		if (ATT_ERREURS.isEmpty()) {
 			try {
-				File f = new File(Config.getChemin()+"personnes.xml");
-				personne = Personnes_xml.authentification(email, motDePasse, f);
+				File f = new File(Config.getChemin()+"associations.xml");
+				association = Associations_xml.authentification(email, motDePasse, f);
 				ATT_RESULTAT = "Succ�s de la connexion.";
 			} catch (Exception e) {
 				setErreur("wrongCredentials", e.getMessage());
@@ -63,7 +63,7 @@ public final class Connexion_benevole_form {
 			ATT_RESULTAT = "Echec de la connexion.";
 		}
 		
-		return personne;
+		return association;
 	}
 
 	/*

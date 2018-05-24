@@ -1,19 +1,21 @@
 package models.associations;
 
+import java.util.List;
+
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
 
 public class Associations
 {
-    private Association association;
+    private List<Association> association;
 
-    public Association getAssociation ()
+    public List<Association> getAssociation ()
     {
         return association;
     }
 
-    public void setAssociation (Association association)
+    public void setAssociation (List<Association> association)
     {
         this.association = association;
     }

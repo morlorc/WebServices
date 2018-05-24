@@ -157,7 +157,7 @@
 							<div class="input-container">
 								<label for="mail">
 									<i class="fa fa-envelope icon"></i>
-									<input class="input-field" type="email" id="mailD" name="mailD"  placeholder="Saisir mail"/>
+									<input class="input-field" type="email" id="mailD" value="${param.mailD}" name="mailD"  placeholder="Saisir mail"/>
 									<br />
 								</label>
 							</div>
@@ -173,7 +173,9 @@
 						</form>
 							<div class="alert alert-danger alert-dismissible fade show">
 								<button type="button" class="close" data-dismiss="alert">&times;</button>
-								This alert box could indicate a dangerous or potentially negative action.
+								<p>${form.erreurs['mailD']}
+								${form.erreurs['mdpD']}
+								${form.erreurs['wrongCredentials']}</p>
 							</div>
 							<br />
 						<input type="button" class="btn btn-default" value="Pas encore inscrit ?" onClick="AssociationInscription()">

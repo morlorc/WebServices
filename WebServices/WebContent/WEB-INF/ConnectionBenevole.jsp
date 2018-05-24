@@ -69,10 +69,6 @@
 
 							<input type="submit" value="S'inscrire" />
 						</form>
-							<div class="alert alert-danger alert-dismissible fade show">
-								<button type="button" class="close" data-dismiss="alert">&times;</button>
-								This alert box could indicate a dangerous or potentially negative action.
-							</div>
 							<br />
 						<input type="button" class="btn btn-default" value="Déjà inscrit ?" onClick="BenevoleConnexion()">
 					</div>

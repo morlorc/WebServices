@@ -11,7 +11,6 @@ public class Config {
 	}
 	public static void setChemin(String path) {
 		chemin = path;
-		System.err.println("Config "+Config.chemin);
 	}
 	
 	
