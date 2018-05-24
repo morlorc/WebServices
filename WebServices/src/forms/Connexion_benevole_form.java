@@ -2,11 +2,13 @@ package forms;
 
 import util.manipulation_xml.Personnes_xml;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
 import models.personnes.Personne;
+import util.Config;
 import util.Util_Connexion;
 
 public final class Connexion_benevole_form {
@@ -50,8 +52,9 @@ public final class Connexion_benevole_form {
 		/* Initialisation du résultat global de la validation. */
 		if (ATT_ERREURS.isEmpty()) {
 			try {
-				personne = Personnes_xml.authentification(email, motDePasse);
-				ATT_RESULTAT = "Succès de la connexion.";
+				File f = new File(Config.getChemin()+"personnes.xml");
+				personne = Personnes_xml.authentification(email, motDePasse, f);
+				ATT_RESULTAT = "Succï¿½s de la connexion.";
 			} catch (Exception e) {
 				setErreur("wrongCredentials", e.getMessage());
 				ATT_RESULTAT = "Echec de la connexion.";
