@@ -4,6 +4,7 @@ import util.Util_Connexion_Benevole;
 import util.Util_Inscription_Benevole;
 import util.manipulation_xml.Personnes_xml;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -13,7 +14,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.xml.transform.stream.StreamSource;
 
 @WebServlet(urlPatterns = "/connexion_benevole")
 
@@ -22,7 +22,7 @@ public class Connexion_benevole extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	public static final String VUE = "/WEB-INF/ConnectionBenevole.jsp";
-	public static final String XML = "personnes.xml";
+	public static final String XML = "D:\\Users\\Pierre\\Desktop\\WebsGit\\WebServices\\WebServices\\WebContent\\personnes.xml";
     public static final String CHAMP_EMAIL_BN = "mailC";
     public static final String CHAMP_PASS_BN = "mdpC";
     public static final String ATT_ERREURS  = "erreurs";
@@ -36,7 +36,7 @@ public class Connexion_benevole extends HttpServlet {
         String email = request.getParameter( CHAMP_EMAIL_BN );
         String motDePasse = request.getParameter( CHAMP_PASS_BN );
       	
-        if (Personnes_xml.authentificationValide( email, motDePasse, new StreamSource( request.getServletContext().getResourceAsStream( XML ))) ) {
+        if (Personnes_xml.authentificationValide( email, motDePasse, new File (XML)) ) {
         	System.out.println("Connexion OK");
         	//Reste à compléter
         } else {

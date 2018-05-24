@@ -1,50 +1,55 @@
-<?xml version="1.0" ?>
-<!DOCTYPE xml>
-<personnes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:noNamespaceSchemaLocation="personnes.xsd">
-	<personne>
-		<mdp_pers>mamour2018</mdp_pers>
-		<nom_pers>Mamour</nom_pers>
-		<prenom_pers>Jean-Michel</prenom_pers>
-		<age>62</age>
-		<mail_pers>jeanmichel.mamour@wanadoo.com</mail_pers>
-		<candidatures>
-			<candidature>
-				<nom_event>Balade party</nom_event>
-				<date_debut>2018-03-30</date_debut>
-				<date_fin>2018-03-31</date_fin>
-				<etat>En cours</etat>
-			</candidature>
-		</candidatures>
-	</personne>
-	<personne>
-		<mdp_pers>0452585erzer</mdp_pers>
-		<nom_pers>Martin</nom_pers>
-		<prenom_pers>Jean</prenom_pers>
-		<age>35</age>
-		<mail_pers>jean.martin@gmail.com</mail_pers>
-		<candidatures>
-			<candidature>
-				<nom_event>Balade party</nom_event>
-				<date_debut>2018-03-30</date_debut>
-				<date_fin>2018-03-31</date_fin>
-				<etat>Validé</etat>
-			</candidature>
-		</candidatures>
-	</personne>
-	<personne>
-		<mdp_pers>qwerty123r</mdp_pers>
-		<nom_pers>Nerie</nom_pers>
-		<prenom_pers>Mark</prenom_pers>
-		<age>47</age>
-		<mail_pers>thugdu92@yahoo.fr</mail_pers>
-		<candidatures>
-			<candidature>
-				<nom_event>Balade party</nom_event>
-				<date_debut>2018-03-30</date_debut>
-				<date_fin>2018-03-31</date_fin>
-				<etat>Refusé</etat>
-			</candidature>
-		</candidatures>
-	</personne>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<personnes>
+    <personne>
+        <age>62</age>
+        <candidatures>
+            <candidature>
+                <date_debut>2018-03-30</date_debut>
+                <date_fin>2018-03-31</date_fin>
+                <etat>En cours</etat>
+                <nom_event>Balade party</nom_event>
+            </candidature>
+        </candidatures>
+        <mail_pers>jeanmichel.mamour@wanadoo.com</mail_pers>
+        <mdp_pers>mamour2018</mdp_pers>
+        <nom_pers>Mamour</nom_pers>
+        <prenom_pers>Jean-Michel</prenom_pers>
+    </personne>
+    <personne>
+        <age>35</age>
+        <candidatures>
+            <candidature>
+                <date_debut>2018-03-30</date_debut>
+                <date_fin>2018-03-31</date_fin>
+                <etat>Validé</etat>
+                <nom_event>Balade party</nom_event>
+            </candidature>
+        </candidatures>
+        <mail_pers>jean.martin@gmail.com</mail_pers>
+        <mdp_pers>0452585erzer</mdp_pers>
+        <nom_pers>Martin</nom_pers>
+        <prenom_pers>Jean</prenom_pers>
+    </personne>
+    <personne>
+        <age>47</age>
+        <candidatures>
+            <candidature>
+                <date_debut>2018-03-30</date_debut>
+                <date_fin>2018-03-31</date_fin>
+                <etat>Refusé</etat>
+                <nom_event>Balade party</nom_event>
+            </candidature>
+        </candidatures>
+        <mail_pers>thugdu92@yahoo.fr</mail_pers>
+        <mdp_pers>qwerty123r</mdp_pers>
+        <nom_pers>Nerie</nom_pers>
+        <prenom_pers>Mark</prenom_pers>
+    </personne>
+    <personne>
+        <age>21</age>
+        <mail_pers>p@a.fr</mail_pers>
+        <mdp_pers>mot de passe</mdp_pers>
+        <nom_pers>pierre</nom_pers>
+        <prenom_pers>abrand</prenom_pers>
+    </personne>
 </personnes>

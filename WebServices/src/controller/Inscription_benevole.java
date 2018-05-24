@@ -3,9 +3,11 @@ package controller;
 import util.Util_Inscription_Benevole;
 import util.manipulation_xml.Personnes_xml;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.ResourceBundle;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,7 +23,7 @@ public class Inscription_benevole extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	public static final String VUE = "/WEB-INF/InscriptionBenevole.jsp";
-	public static final String XML = "personnes.xml";
+	public static final String XML = "D:\\Users\\Pierre\\Desktop\\WebsGit\\WebServices\\WebServices\\WebContent\\personnes.xml";
     public static final String CHAMP_NOM_BN = "nomB";
     public static final String CHAMP_PRENOM_BN = "prenomB";
     public static final String CHAMP_AGE_BN = "ageB";
@@ -40,8 +42,9 @@ public class Inscription_benevole extends HttpServlet {
         String age = request.getParameter( CHAMP_AGE_BN );
         String email = request.getParameter( CHAMP_EMAIL_BN );
         String motDePasse = request.getParameter( CHAMP_PASS_BN );
-      	
-        if (Personnes_xml.existeDejaMail( email, new StreamSource( request.getServletContext().getResourceAsStream( XML ))) ) {
+        
+        if (Personnes_xml.existeDejaMail( email, new File (XML)) ) {
+        //if (Personnes_xml.existeDejaMail( email, new StreamSource( request.getServletContext().getResourceAsStream( XML ))) ) {
         	erreurs.put(CHAMP_EMAIL_BN, "Un compte existe déjà avec cette adresse.");
         } else {
         
@@ -78,7 +81,7 @@ public class Inscription_benevole extends HttpServlet {
 
         if ( erreurs.isEmpty() ) {
         	Personnes_xml.ajouterPersonne(
-        			new StreamSource( request.getServletContext().getResourceAsStream( XML )),
+        			new File( XML ),
         			nom, prenom, age, email, motDePasse
         	);
             resultat = "Succès de l'inscription.";
