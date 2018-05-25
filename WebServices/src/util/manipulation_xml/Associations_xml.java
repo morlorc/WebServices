@@ -39,7 +39,7 @@ public class Associations_xml {
 		try {
 			Associations a = unmarshal_associations(src);
 			a.getAssociation().add(new Association (siren, nom, email, motDePasse));
-			JaxParser.<Associations>marshal(a, src);
+			JaxParser.<Associations>marshal(a, src, "association");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -22,12 +22,13 @@ public class JaxParser {
         return u.unmarshal(s, cl).getValue();
     }
 	
-    public static <T> void marshal(T obj, File f) throws JAXBException
+    public static <T> void marshal(T obj, File f, String path) throws JAXBException
     {
         JAXBContext ctx = JAXBContext.newInstance(obj.getClass());
         Marshaller m = ctx.createMarshaller();
         m.setProperty(Marshaller.JAXB_ENCODING, "UTF-8");
         m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+        m.setProperty(Marshaller.JAXB_NO_NAMESPACE_SCHEMA_LOCATION, path+".xsd");
         m.marshal(obj, f);
     }
 

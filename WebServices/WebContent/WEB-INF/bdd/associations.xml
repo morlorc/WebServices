@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE xml>
 <associations xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:noNamespaceSchemaLocation="association.xsd">
+	xsi:noNamespaceSchemaLocation="associations.xsd">
 	<association>
 		<identifiants>
 			<SIREN>479606410</SIREN>
