@@ -8,6 +8,7 @@
         <mdp_pers>mamour2018</mdp_pers>
         <candidatures>
             <candidature>
+            	<nom_asso>Balade Bucolique</nom_asso>
                 <nom_event>Balade party</nom_event>
                 <date_debut>2018-03-30</date_debut>
                 <date_fin>2018-03-31</date_fin>
@@ -23,6 +24,7 @@
         <mdp_pers>0452585erzer</mdp_pers>
         <candidatures>
             <candidature>
+            	<nom_asso>Balade Bucolique</nom_asso>
                 <nom_event>Balade party</nom_event>
                 <date_debut>2018-03-30</date_debut>
                 <date_fin>2018-03-31</date_fin>
@@ -38,6 +40,7 @@
         <mdp_pers>qwerty123r</mdp_pers>
         <candidatures>
             <candidature>
+            	<nom_asso>Balade Bucolique</nom_asso>
                 <nom_event>Balade party</nom_event>
                 <date_debut>2018-03-30</date_debut>
                 <date_fin>2018-03-31</date_fin>

@@ -1,5 +1,11 @@
 package models.associations;
 
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
+@XmlType(propOrder= {"SIREN","nom_asso","mail_asso","mdp_asso","evenements"})
+@XmlRootElement
+
 public class Association {
 
 	private String nom;

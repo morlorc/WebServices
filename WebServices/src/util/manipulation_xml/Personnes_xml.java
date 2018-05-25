@@ -6,10 +6,6 @@ import models.personnes.*;
 import java.io.File;
 import java.util.Objects;
 
-/*import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-@XmlType(propOrder= {"nom_pers","prenom_pers","mail_pers","age","mdp_pers","candidatures"})
-@XmlRootElement*/
 
 public class Personnes_xml {
 	

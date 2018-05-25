@@ -6,11 +6,6 @@ import models.associations.*;
 import java.io.File;
 import java.util.Objects;
 
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-@XmlType(propOrder= {"SIREN","nom_asso","mail_asso","mdp_asso","id_event","nom_event","date_debut","date_fin","description_event","id_pers","nom_pers","prenom_pers","motivation","mail_pers","etat"})
-@XmlRootElement
-
 public class Associations_xml {
 	
 	private static Associations unmarshal_associations(File src) {

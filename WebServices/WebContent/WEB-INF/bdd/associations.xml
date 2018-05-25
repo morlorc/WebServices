@@ -3,12 +3,10 @@
 <associations xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:noNamespaceSchemaLocation="associations.xsd">
 	<association>
-		<identifiants>
-			<SIREN>479606410</SIREN>
-			<nom_asso>Promenades bucoliques SARL</nom_asso>
-			<mail_asso>promenade@bucolique.fr</mail_asso>
-			<mdp_asso>pKQvfXBEnP</mdp_asso>
-		</identifiants>
+		<SIREN>479606410</SIREN>
+		<nom_asso>Promenades bucoliques SARL</nom_asso>
+		<mail_asso>promenade@bucolique.fr</mail_asso>
+		<mdp_asso>pKQvfXBEnP</mdp_asso>
 		<evenements>
 			<evenement>
 				<id_event>05323</id_event>
@@ -18,7 +16,6 @@
 				<description_event>Balade champêtre entre amis</description_event>
 				<candidatures>
 					<candidature>
-						<id_pers>032556548</id_pers>
 						<nom_pers>Martin</nom_pers>
 						<prenom_pers>Jean</prenom_pers>
 						<motivation>Aime bien marcher moi</motivation>
@@ -26,7 +23,6 @@
 						<etat>En cours</etat>
 					</candidature>
 					<candidature>
-						<id_pers>056624582</id_pers>
 						<nom_pers>Mamour</nom_pers>
 						<prenom_pers>Jean-Michel</prenom_pers>
 						<motivation>J’aime la nature</motivation>
@@ -34,7 +30,6 @@
 						<etat>Accepté</etat>
 					</candidature>
 					<candidature>
-						<id_pers>263624582</id_pers>
 						<nom_pers>Nerie</nom_pers>
 						<prenom_pers>Mark</prenom_pers>
 						<motivation>Cpaske c b1 lé chan</motivation>

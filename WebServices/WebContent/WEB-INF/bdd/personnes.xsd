@@ -16,6 +16,7 @@
 										<xs:element name="candidature" maxOccurs="unbounded" minOccurs="0">
 											<xs:complexType>
 												<xs:sequence>
+													<xs:element type="xs:string" name="nom_asso"/>
 													<xs:element type="xs:string" name="nom_event"/>
 													<xs:element type="xs:date" name="date_debut"/>
 													<xs:element type="xs:date" name="date_fin"/>

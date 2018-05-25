@@ -20,16 +20,10 @@
 				<xs:element name="association">
 					<xs:complexType>
 						<xs:sequence>
-							<xs:element name="identifiants">
-								<xs:complexType>
-									<xs:sequence>
-										<xs:element type="string_SIREN" name="SIREN"/>
-										<xs:element type="xs:string" name="nom_asso"/>
-										<xs:element type="string_mail" name="mail_asso"/>
-										<xs:element type="string_mdp" name="mdp_asso"/>
-									</xs:sequence>
-								</xs:complexType>
-							</xs:element>
+							<xs:element type="string_SIREN" name="SIREN"/>
+							<xs:element type="xs:string" name="nom_asso"/>
+							<xs:element type="string_mail" name="mail_asso"/>
+							<xs:element type="string_mdp" name="mdp_asso"/>
 							<xs:element name="evenements">
 								<xs:complexType>
 									<xs:sequence>
@@ -47,7 +41,6 @@
 																<xs:element name="candidature" maxOccurs="unbounded" minOccurs="0">
 																	<xs:complexType>
 																		<xs:sequence>
-																			<xs:element type="xs:integer" name="id_pers"/>
 																			<xs:element type="xs:string" name="nom_pers"/>
 																			<xs:element type="xs:string" name="prenom_pers"/>
 																			<xs:element type="xs:string" name="motivation"/>

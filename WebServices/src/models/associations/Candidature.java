@@ -1,5 +1,9 @@
 package models.associations;
 
+import javax.xml.bind.annotation.XmlType;
+
+@XmlType(propOrder= {"nom_pers","prenom_pers","motivation","mail_pers","etat"})
+
 public class Candidature
 {
     private String etat;
