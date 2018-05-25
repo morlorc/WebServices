@@ -51,7 +51,7 @@
         <mail_pers>p@a.fr</mail_pers>
         <age>21</age>
         <mdp_pers>mot de passe</mdp_pers>
-        <candidatures></candidatures>
+        <candidatures/>
     </personne>
     <personne>
         <nom_pers>Petit</nom_pers>
@@ -59,6 +59,14 @@
         <mail_pers>pt.ludo@gmail.com</mail_pers>
         <age>56</age>
         <mdp_pers>cmoiludo</mdp_pers>
-        <candidatures></candidatures>
+        <candidatures/>
+    </personne>
+    <personne>
+        <nom_pers>nom</nom_pers>
+        <prenom_pers>prenom</prenom_pers>
+        <mail_pers>mail@domain.com</mail_pers>
+        <age>21</age>
+        <mdp_pers>motdepassssssss</mdp_pers>
+        <candidatures/>
     </personne>
 </personnes>

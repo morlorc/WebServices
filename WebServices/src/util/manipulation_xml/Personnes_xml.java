@@ -6,10 +6,10 @@ import models.personnes.*;
 import java.io.File;
 import java.util.Objects;
 
-import javax.xml.bind.annotation.XmlRootElement;
+/*import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
-@XmlType(propOrder= {"nom_pers","prenom_pers","mail_pers","age","mdp_pers","nom_event","date_debut","date_fin","etat"})
-@XmlRootElement
+@XmlType(propOrder= {"nom_pers","prenom_pers","mail_pers","age","mdp_pers","candidatures"})
+@XmlRootElement*/
 
 public class Personnes_xml {
 	
@@ -38,8 +38,8 @@ public class Personnes_xml {
 	public static void ajouterPersonne(File src, String nom, String prenom, String age, String email, String motDePasse) {
 		try {
 			Personnes p = unmarshal_personnes(src);
-			p.getPersonne().add(new Personne (nom, prenom, age, email, motDePasse));
-			JaxParser.<Personnes>marshal(p, src,"personnes");
+			p.getPersonne().add(new Personne (nom, prenom, age, email, motDePasse, new Candidatures() ));
+			JaxParser.<Personnes>marshal(p, src, "personnes");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

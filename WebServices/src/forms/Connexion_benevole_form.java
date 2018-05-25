@@ -49,12 +49,14 @@ public final class Connexion_benevole_form {
 		}
 		personne.setMdp_pers(motDePasse);
 
-		/* Initialisation du résultat global de la validation. */
+		/* Initialisation du r�sultat global de la validation. */
 		if (ATT_ERREURS.isEmpty()) {
 			try {
 				File f = new File(Config.getChemin()+"personnes.xml");
 				personne = Personnes_xml.authentification(email, motDePasse, f);
+
 				ATT_RESULTAT = "Succés de la connexion.";
+				
 			} catch (Exception e) {
 				setErreur("wrongCredentials", e.getMessage());
 				ATT_RESULTAT = "Echec de la connexion.";
@@ -62,6 +64,8 @@ public final class Connexion_benevole_form {
 		} else {
 			ATT_RESULTAT = "Echec de la connexion.";
 		}
+		
+		System.out.println("Erreurs : " + ATT_ERREURS);
 		
 		return personne;
 	}

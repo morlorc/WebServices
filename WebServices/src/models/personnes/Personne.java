@@ -1,5 +1,8 @@
 package models.personnes;
 
+import javax.xml.bind.annotation.XmlType;
+@XmlType(propOrder= {"nom_pers","prenom_pers","mail_pers","age","mdp_pers","candidatures"})
+
 public class Personne
 {
     private String age;
@@ -14,12 +17,13 @@ public class Personne
 
     private String mail_pers;
     
-    public Personne(String nom, String prenom, String _age, String email, String motDePasse) {
+    public Personne(String nom, String prenom, String _age, String email, String motDePasse, Candidatures cand) {
     	nom_pers = nom;
     	prenom_pers = prenom;
     	age = _age;
     	mail_pers = email;
     	mdp_pers = motDePasse;
+    	candidatures = cand;
     }
     
     public Personne() {
