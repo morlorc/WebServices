@@ -27,7 +27,7 @@ public final class Connexion_benevole_form {
 	}
 
 	public Personne connecterPersonne(HttpServletRequest request) {
-		/* Rï¿½cupï¿½ration des champs du formulaire */
+		/* Récupération des champs du formulaire */
 		String email = getValeurChamp(request, CHAMP_EMAIL_BN);
 		String motDePasse = getValeurChamp(request, CHAMP_PASS_BN);
 
@@ -49,12 +49,12 @@ public final class Connexion_benevole_form {
 		}
 		personne.setMdp_pers(motDePasse);
 
-		/* Initialisation du rÃ©sultat global de la validation. */
+		/* Initialisation du résultat global de la validation. */
 		if (ATT_ERREURS.isEmpty()) {
 			try {
 				File f = new File(Config.getChemin()+"personnes.xml");
 				personne = Personnes_xml.authentification(email, motDePasse, f);
-				ATT_RESULTAT = "Succï¿½s de la connexion.";
+				ATT_RESULTAT = "Succès de la connexion.";
 			} catch (Exception e) {
 				setErreur("wrongCredentials", e.getMessage());
 				ATT_RESULTAT = "Echec de la connexion.";
@@ -63,18 +63,20 @@ public final class Connexion_benevole_form {
 			ATT_RESULTAT = "Echec de la connexion.";
 		}
 		
+		System.out.println("Erreurs : " + ATT_ERREURS);
+		
 		return personne;
 	}
 
 	/*
-	 * Ajoute un message correspondant au champ spï¿½cifiï¿½ ï¿½ la map des erreurs.
+	 * Ajoute un message correspondant au champ spécifié à la map des erreurs.
 	 */
 	private void setErreur(String champ, String message) {
 		ATT_ERREURS.put(champ, message);
 	}
 
 	/*
-	 * Mï¿½thode utilitaire qui retourne null si un champ est vide, et son contenu
+	 * Méthode utilitaire qui retourne null si un champ est vide, et son contenu
 	 * sinon.
 	 */
 	private static String getValeurChamp(HttpServletRequest request, String nomChamp) {

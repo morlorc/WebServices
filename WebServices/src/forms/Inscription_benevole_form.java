@@ -48,7 +48,6 @@ public class Inscription_benevole_form {
 	        	Util_Inscription.validationNom( nom );
 	        }catch (Exception e){
 	        	setErreur(CHAMP_NOM_BN, e.getMessage());
-	        	System.out.println(e.getMessage());
 	        }
 	        
 	        try {
@@ -80,7 +79,6 @@ public class Inscription_benevole_form {
         	Personnes_xml.ajouterPersonne(new File(Config.getChemin()+"personnes.xml"), nom, prenom, age, email, mdp);
         	ATT_RESULTAT = "Succès de l'inscription.";
         } else {
-        	System.out.println("Echec");
         	System.out.println(ATT_ERREURS);
         	ATT_RESULTAT = "Échec de l'inscription.";
         }
@@ -108,5 +106,4 @@ public class Inscription_benevole_form {
 			return valeur;
 		}
 	}
-	
 }

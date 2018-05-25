@@ -14,12 +14,13 @@ public class Personne
 
     private String mail_pers;
     
-    public Personne(String nom, String prenom, String _age, String email, String motDePasse) {
+    public Personne(String nom, String prenom, String _age, String email, String motDePasse, Candidatures cand) {
     	nom_pers = nom;
     	prenom_pers = prenom;
     	age = _age;
     	mail_pers = email;
     	mdp_pers = motDePasse;
+    	candidatures = cand;
     }
     
     public Personne() {

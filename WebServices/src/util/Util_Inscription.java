@@ -14,7 +14,7 @@ public class Util_Inscription {
     public static void validationEmail( String email ) throws Exception{
     	//System.out.println(email);
         if ( email != null && email.trim().length() != 0 ) {
-            if ( !email.matches( "([^.@]+)(\\.[^.@]+)*@([^.@]+\\.)+([^.@]+)<br />" ) ) {
+            if ( !email.matches( "([^.@]+)(\\.[^.@]+)*@([^.@]+\\.)+([^.@]+)" ) ) {
                 throw new Exception( "Merci de saisir une adresse mail valide.<br />" );
             }
         } else {

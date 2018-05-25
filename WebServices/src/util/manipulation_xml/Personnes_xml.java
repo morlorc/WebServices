@@ -38,7 +38,7 @@ public class Personnes_xml {
 	public static void ajouterPersonne(File src, String nom, String prenom, String age, String email, String motDePasse) {
 		try {
 			Personnes p = unmarshal_personnes(src);
-			p.getPersonne().add(new Personne (nom, prenom, age, email, motDePasse));
+			p.getPersonne().add(new Personne (nom, prenom, age, email, motDePasse, new Candidatures() ));
 			JaxParser.<Personnes>marshal(p, src);
 		} catch (Exception e) {
 			e.printStackTrace();
