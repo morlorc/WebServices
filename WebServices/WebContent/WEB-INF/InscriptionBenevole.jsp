@@ -71,22 +71,18 @@
 						</form>
 							<div class="alert alert-danger alert-dismissible fade show">
 								<button type="button" class="close" data-dismiss="alert">&times;</button>
-								<p>BONJOUR
-								${forms}
-								${forms.erreurs}
-								${forms.erreurs[1]}
-								${forms.erreurs['nomB']}
-								${forms.erreurs['prenomB']}
-								${forms.erreurs['ageB']}
-								${forms.erreurs['mailB']}
-								${forms.erreurs['mdpB']}</p>
+								<p>${form["nomB"]}
+								${form["prenomB"]}
+								${form["ageB"]}
+								${form["mailB"]}
+								${form["mdpB"]}
+								</p>
 							</div>
 							<br />
 						<input type="button" class="btn btn-default" value="Déjà inscrit ?" onClick="BenevoleConnexion()">
 					</div>
 					<div class="connexion">
 						<h2>Connexion</h2>
-						
 						<form method="post" action="connexion_benevole">
 							<div class="input-container">
 								<label for="mail">

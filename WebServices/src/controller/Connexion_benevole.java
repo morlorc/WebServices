@@ -1,6 +1,8 @@
 package controller;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -22,7 +24,6 @@ public class Connexion_benevole extends HttpServlet {
     public static final String ATT_FORM = "form";
 	public static final String VUE = "/WEB-INF/ConnectionBenevole.jsp";
 	
-	
     @Override
 	public void init() throws ServletException {
 		super.init();
@@ -42,9 +43,11 @@ public class Connexion_benevole extends HttpServlet {
 		
         /* Appel au traitement et à la validation de la requête, et récupération du bean en résultant */
         Personne personne = form.connecterPersonne( request );
+        
+    	Map<String, String> ATT_ERREURS = form.Get_AttErreur();
 		
         /* Stockage du formulaire et du bean dans l'objet request */
-        request.setAttribute( ATT_FORM, form );
+        request.setAttribute( ATT_FORM, ATT_ERREURS );
         request.setAttribute( ATT_PERSONNE, personne );
 		
         this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );

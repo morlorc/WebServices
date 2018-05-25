@@ -89,4 +89,8 @@ public final class Connexion_benevole_form {
 			return valeur;
 		}
 	}
+
+    public Map<String, String> Get_AttErreur() {
+    	return ATT_ERREURS;
+    }
 }

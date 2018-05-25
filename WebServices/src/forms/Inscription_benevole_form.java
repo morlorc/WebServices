@@ -49,34 +49,45 @@ public class Inscription_benevole_form {
 	        }catch (Exception e){
 	        	setErreur(CHAMP_NOM_BN, e.getMessage());
 	        }
+			personne.setNom_pers(nom);
 	        
 	        try {
 	        	Util_Inscription.validationPrenom( prenom );
 	        }catch (Exception e){
 	        	setErreur(CHAMP_PRENOM_BN, e.getMessage());
 	        }
+			personne.setPrenom_pers(prenom);
 	        
 	        try {
 	        	Util_Inscription.validationAge( age );
 	        }catch (Exception e){
 	        	setErreur(CHAMP_AGE_BN, e.getMessage());
 	        }
+			personne.setAge(age);
 	        
 	        try {
 	        	Util_Inscription.validationEmail( email );
 	        }catch (Exception e){
 	        	setErreur(CHAMP_EMAIL_BN, e.getMessage());
 	        }
+			personne.setMail_pers(email);
 	        
 	        try {
 	        	Util_Inscription.validationMotsDePasse( mdp );
 	        }catch (Exception e){
 	        	setErreur(CHAMP_PASS_BN, e.getMessage());
 	        }
+			personne.setMail_pers(email);
         }
-
         if ( ATT_ERREURS.isEmpty() ) {
         	Personnes_xml.ajouterPersonne(new File(Config.getChemin()+"personnes.xml"), nom, prenom, age, email, mdp);
+			File f = new File(Config.getChemin()+"personnes.xml");
+			try {
+				personne = Personnes_xml.authentification(email, mdp, f);
+			} catch (Exception e) {
+	        	ATT_RESULTAT = "Problème de connexion";
+				e.printStackTrace();
+			}
         	ATT_RESULTAT = "Succès de l'inscription.";
         } else {
         	System.out.println(ATT_ERREURS);
@@ -106,4 +117,9 @@ public class Inscription_benevole_form {
 			return valeur;
 		}
 	}
+
+    public Map<String, String> Get_AttErreur() {
+    	return ATT_ERREURS;
+	}
+    
 }

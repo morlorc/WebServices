@@ -1,8 +1,7 @@
 package controller;
 
-import util.Config;
-
 import java.io.IOException;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import forms.Inscription_benevole_form;
 import models.personnes.Personne;
+import util.Config;
 
 @WebServlet(urlPatterns = "/inscription_benevole")
 
@@ -42,9 +42,11 @@ public class Inscription_benevole extends HttpServlet {
 		
         /* Appel au traitement et à la validation de la requête, et récupération du bean en résultant */
         Personne personne = form.inscrirePersonne( request );
-		
+
+    	Map<String, String> ATT_ERREURS = form.Get_AttErreur();
+        
         /* Stockage du formulaire et du bean dans l'objet request */
-        request.setAttribute( ATT_FORM, form );
+        request.setAttribute( ATT_FORM, ATT_ERREURS );
         request.setAttribute( ATT_PERSONNE, personne );
         
         this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );

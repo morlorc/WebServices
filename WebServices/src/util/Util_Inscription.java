@@ -12,7 +12,7 @@ public class Util_Inscription {
 	}
 		
     public static void validationEmail( String email ) throws Exception{
-    	//System.out.println(email);
+    	//System.out.println(email);5
         if ( email != null && email.trim().length() != 0 ) {
             if ( !email.matches( "([^.@]+)(\\.[^.@]+)*@([^.@]+\\.)+([^.@]+)" ) ) {
                 throw new Exception( "Merci de saisir une adresse mail valide.<br />" );
@@ -59,7 +59,7 @@ public class Util_Inscription {
 	
 	public static void validationAge( String age ) throws Exception{
 		//System.out.println(age);
-    	if (age != "") {
+    	if (age != "" && age != null) {
     		int age_i = Integer.parseInt(age);
 		    if ( age_i < 16) {
 		    	throw new Exception( "Vous devez avoir au moins 16 ans.<br />" );
