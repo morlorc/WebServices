@@ -1,5 +1,8 @@
 package models.personnes;
 
+import javax.xml.bind.annotation.XmlType;
+@XmlType(propOrder= {"nom_event","date_debut","date_fin","etat"})
+
 public class Candidature
 {
     private String etat;

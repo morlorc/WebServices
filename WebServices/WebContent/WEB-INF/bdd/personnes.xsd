@@ -5,15 +5,15 @@
 				<xs:element name="personne" maxOccurs="unbounded" minOccurs="0">
 					<xs:complexType>
 						<xs:sequence>
-							<xs:element type="xs:string" name="mdp_pers"/>
 							<xs:element type="xs:string" name="nom_pers"/>
 							<xs:element type="xs:string" name="prenom_pers"/>
-							<xs:element type="xs:integer" name="age"/>
 							<xs:element type="xs:string" name="mail_pers"/>
+							<xs:element type="xs:integer" name="age"/>
+							<xs:element type="xs:string" name="mdp_pers"/>
 							<xs:element name="candidatures">
 								<xs:complexType>
 									<xs:sequence>
-										<xs:element name="candidature">
+										<xs:element name="candidature" maxOccurs="unbounded" minOccurs="0">
 											<xs:complexType>
 												<xs:sequence>
 													<xs:element type="xs:string" name="nom_event"/>

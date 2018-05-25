@@ -54,7 +54,7 @@ public final class Connexion_association_form {
 			try {
 				File f = new File(Config.getChemin()+"associations.xml");
 				association = Associations_xml.authentification(email, motDePasse, f);
-				ATT_RESULTAT = "Succ�s de la connexion.";
+				ATT_RESULTAT = "Succés de la connexion.";
 			} catch (Exception e) {
 				setErreur("wrongCredentials", e.getMessage());
 				ATT_RESULTAT = "Echec de la connexion.";
