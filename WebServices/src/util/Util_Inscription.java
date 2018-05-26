@@ -42,9 +42,9 @@ public class Util_Inscription {
     
     public static void validationSiren(String siren) throws Exception {
     	//System.out.println(siren);
-    	if ( siren.length() != 9 || siren != null || siren.isEmpty()) {
+    	if ( siren.length() != 9 || siren != null || siren.isEmpty() || !siren.matches("[0-9]{9}")) {
     		throw new Exception("Le fomat du SIREN est invalide.<br />");
-    	} 
+    		}
     }
 
 	public static void validationPrenom( String prenom ) throws Exception{

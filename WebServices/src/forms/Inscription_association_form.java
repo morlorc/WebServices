@@ -6,18 +6,18 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
-import models.personnes.Personne;
+import models.associations.Association;
 import util.Config;
 import util.Util_Inscription;
+import util.manipulation_xml.Associations_xml;
 import util.manipulation_xml.Personnes_xml;
 
-public class Inscription_benevole_form {
+public class Inscription_association_form {
 	
-	public static final String CHAMP_NOM_BN = "nomB";
-    public static final String CHAMP_PRENOM_BN = "prenomB";
-    public static final String CHAMP_AGE_BN = "ageB";
-    public static final String CHAMP_EMAIL_BN = "mailB";
-    public static final String CHAMP_PASS_BN = "mdpB";
+	public static final String CHAMP_NOM_ASSO = "nomA";
+    public static final String CHAMP_SIREN = "SIREN";
+    public static final String CHAMP_EMAIL_ASSO = "mailA";
+    public static final String CHAMP_PASS_ASSO = "mdpA";
     private Map<String, String> ATT_ERREURS = new HashMap<String, String>();
 	private static String ATT_RESULTAT = "resultat";
 	
@@ -29,61 +29,53 @@ public class Inscription_benevole_form {
 		return ATT_ERREURS;
 	}
 	
-	public Personne inscrirePersonne(HttpServletRequest request) {
+	public Association inscrireAssociation(HttpServletRequest request) {
 		//Réucpération des champs du formulaire
-		String nom = getValeurChamp(request, CHAMP_NOM_BN);
-		String prenom = getValeurChamp(request, CHAMP_PRENOM_BN);
-		String age = getValeurChamp(request, CHAMP_AGE_BN);
-		String email = getValeurChamp(request, CHAMP_EMAIL_BN);
-		String mdp = getValeurChamp(request, CHAMP_PASS_BN);
+		String nom = getValeurChamp(request, CHAMP_NOM_ASSO);
+		String siren = getValeurChamp(request, CHAMP_SIREN);
+		String email = getValeurChamp(request, CHAMP_EMAIL_ASSO);
+		String mdp = getValeurChamp(request, CHAMP_PASS_ASSO);
 
-		Personne personne = new Personne();
+		Association association = new Association();
 		
-		if (Personnes_xml.existeDejaMail(new File(Config.getChemin()+"personnes.xml"), email ) ) {
-			setErreur(CHAMP_EMAIL_BN, "Un compte existe déjà avec cette adresse.");
+		if (Associations_xml.existeDejaMail(new File(Config.getChemin()+"associations.xml"), email ) || Personnes_xml.existeDejaMail(new File(Config.getChemin()+"personnes.xml"), email ) ) {
+			setErreur(CHAMP_EMAIL_ASSO, "Un compte existe déjà avec cette adresse.");
 		} else {
-			System.out.println("Personne avec l'adresse : " + email);
+			System.out.println("Association avec l'adresse : " + email);
         
 	        try {
 	        	Util_Inscription.validationNom( nom );
 	        }catch (Exception e){
-	        	setErreur(CHAMP_NOM_BN, e.getMessage());
+	        	setErreur(CHAMP_NOM_ASSO, e.getMessage());
 	        }
-			personne.setNom_pers(nom);
+			association.setNom(nom);
 	        
 	        try {
-	        	Util_Inscription.validationPrenom( prenom );
+	        	Util_Inscription.validationSiren( siren );
 	        }catch (Exception e){
-	        	setErreur(CHAMP_PRENOM_BN, e.getMessage());
+	        	setErreur(CHAMP_SIREN, e.getMessage());
 	        }
-			personne.setPrenom_pers(prenom);
-	        
-	        try {
-	        	Util_Inscription.validationAge( age );
-	        }catch (Exception e){
-	        	setErreur(CHAMP_AGE_BN, e.getMessage());
-	        }
-			personne.setAge(age);
+			association.setSiren(siren);
 	        
 	        try {
 	        	Util_Inscription.validationEmail( email );
 	        }catch (Exception e){
-	        	setErreur(CHAMP_EMAIL_BN, e.getMessage());
+	        	setErreur(CHAMP_EMAIL_ASSO, e.getMessage());
 	        }
-			personne.setMail_pers(email);
+			association.setMail(email);
 	        
 	        try {
 	        	Util_Inscription.validationMotsDePasse( mdp );
 	        }catch (Exception e){
-	        	setErreur(CHAMP_PASS_BN, e.getMessage());
+	        	setErreur(CHAMP_PASS_ASSO, e.getMessage());
 	        }
-			personne.setMail_pers(email);
+			association.setMail(email);
         }
         if ( ATT_ERREURS.isEmpty() ) {
-        	Personnes_xml.ajouterPersonne(new File(Config.getChemin()+"personnes.xml"), nom, prenom, age, email, mdp);
-			File f = new File(Config.getChemin()+"personnes.xml");
+        	Associations_xml.ajouterAssociation(new File(Config.getChemin()+"associations.xml"), nom, siren, email, mdp);
+			File f = new File(Config.getChemin()+"associations.xml");
 			try {
-				personne = Personnes_xml.authentification(email, mdp, f);
+				association = Associations_xml.authentification(email, mdp, f);
 			} catch (Exception e) {
 	        	ATT_RESULTAT = "Problème de connexion";
 				e.printStackTrace();
@@ -94,7 +86,7 @@ public class Inscription_benevole_form {
         	ATT_RESULTAT = "Échec de l'inscription.";
         }
 		
-		return personne;
+		return association;
 		
 	}
 	
@@ -117,4 +109,5 @@ public class Inscription_benevole_form {
 			return valeur;
 		}
 	}
+    
 }

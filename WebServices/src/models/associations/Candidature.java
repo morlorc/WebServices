@@ -10,8 +10,6 @@ public class Candidature
 
     private String motivation;
 
-    private String id_pers;
-
     private String nom_pers;
 
     private String prenom_pers;
@@ -36,16 +34,6 @@ public class Candidature
     public void setMotivation (String motivation)
     {
         this.motivation = motivation;
-    }
-
-    public String getId_pers ()
-    {
-        return id_pers;
-    }
-
-    public void setId_pers (String id_pers)
-    {
-        this.id_pers = id_pers;
     }
 
     public String getNom_pers ()
@@ -81,6 +69,6 @@ public class Candidature
     @Override
     public String toString()
     {
-        return "ClassPojo [etat = "+etat+", motivation = "+motivation+", id_pers = "+id_pers+", nom_pers = "+nom_pers+", prenom_pers = "+prenom_pers+", mail_pers = "+mail_pers+"]";
+        return "ClassPojo [etat = "+etat+", motivation = "+motivation+", nom_pers = "+nom_pers+", prenom_pers = "+prenom_pers+", mail_pers = "+mail_pers+"]";
     }
 }

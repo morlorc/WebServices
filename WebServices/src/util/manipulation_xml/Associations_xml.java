@@ -6,6 +6,7 @@ import models.associations.*;
 import java.io.File;
 import java.util.Objects;
 
+
 public class Associations_xml {
 	
 	private static Associations unmarshal_associations(File src) {
@@ -30,10 +31,10 @@ public class Associations_xml {
 		return false;
 	}
 	
-	public static void ajouterAssociations(File src, String siren, String nom, String email, String motDePasse) {
+	public static void ajouterAssociation(File src, String siren, String nom, String email, String motDePasse) {
 		try {
 			Associations a = unmarshal_associations(src);
-			a.getAssociation().add(new Association (siren, nom, email, motDePasse));
+			a.getAssociation().add(new Association (siren, nom, email, motDePasse, new Evenements()));
 			JaxParser.<Associations>marshal(a, src, "association");
 		} catch (Exception e) {
 			e.printStackTrace();

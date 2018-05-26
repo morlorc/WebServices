@@ -44,7 +44,7 @@ public class Connexion_benevole extends HttpServlet {
         /* Appel au traitement et à la validation de la requête, et récupération du bean en résultant */
         Personne personne = form.connecterPersonne( request );
         
-    	Map<String, String> ATT_ERREURS = form.Get_AttErreur();
+    	Map<String, String> ATT_ERREURS = form.getErreurs();
 		
         /* Stockage du formulaire et du bean dans l'objet request */
         request.setAttribute( ATT_FORM, ATT_ERREURS );

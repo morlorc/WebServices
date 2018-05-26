@@ -1,72 +1,52 @@
 package controller;
 
-import util.Util_Inscription;
-
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class Inscription_association extends HttpServlet {
-	
-	private static final long serialVersionUID = 1L;
-	
-	public static final String VUE = "/WEB-INF/InscriptionAssociation.jsp";
-    public static final String CHAMP_NOM_AS = "nomA";
-    public static final String CHAMP_SIREN_AS = "SIREN";
-    public static final String CHAMP_EMAIL_AS = "mailA";
-    public static final String CHAMP_PASS_AS = "mdpA";
-    public static final String ATT_ERREURS  = "erreurs";
-    public static final String ATT_RESULTAT = "resultat";
+import forms.Inscription_association_form;
+import models.associations.Association;
+import util.Config;
 
-	public void doPost( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
+@WebServlet(urlPatterns = "/inscription_association")
+
+public class Inscription_association extends HttpServlet {
+
+	private static final long serialVersionUID = 1L;
+
+	public static final String ATT_ASSOCIATION = "association";
+    public static final String ATT_FORM = "form";
+	public static final String VUE = "/WEB-INF/InscriptionAssociation.jsp";
+
+    @Override
+	public void init() throws ServletException {
+		super.init();
+		Config.setChemin(getServletContext().getInitParameter("localDirectoryPath"));
+	}
+    
+    public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
+        /* Affichage de la page d'inscription */
+        this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );
+    }
+    
+    public void doPost( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
+    	/* Préparation de l'objet formulaire */
+        Inscription_association_form form = new Inscription_association_form();
 		
-		String resultat;
-        Map<String, String> erreurs = new HashMap<String, String>();
+        /* Appel au traitement et à la validation de la requête, et récupération du bean en résultant */
+        Association association = form.inscrireAssociation( request );
+
+    	Map<String, String> ATT_ERREURS = form.getErreurs();
         
-        String nom = request.getParameter(CHAMP_NOM_AS);
-        String siren = request.getParameter(CHAMP_SIREN_AS);
-        String email = request.getParameter(CHAMP_EMAIL_AS);
-        String motDePasse = request.getParameter(CHAMP_PASS_AS);
-        
-        try {
-        	Util_Inscription.validationNom( nom );
-        } catch(Exception e) {
-        	erreurs.put(CHAMP_NOM_AS, e.getMessage());
-        }
-        
-        try {
-        	Util_Inscription.validationSiren( siren );
-        } catch(Exception e) {
-        	erreurs.put(CHAMP_SIREN_AS, e.getMessage());
-        }
-        
-        try {
-        	Util_Inscription.validationEmail( email );
-        } catch(Exception e) {
-        	erreurs.put(CHAMP_EMAIL_AS, e.getMessage());
-        }
-        
-        try {
-        	Util_Inscription.validationMotsDePasse( motDePasse );
-        } catch(Exception e) {
-        	erreurs.put(CHAMP_PASS_AS, e.getMessage());
-        }
-        
-        if ( erreurs.isEmpty() ) {
-            resultat = "Succès de l'inscription.";
-        } else {
-            resultat = "Échec de l'inscription.";
-        }
-        
-        request.setAttribute( ATT_ERREURS, erreurs );
-        request.setAttribute( ATT_RESULTAT, resultat );
+        /* Stockage du formulaire et du bean dans l'objet request */
+        request.setAttribute( ATT_FORM, ATT_ERREURS );
+        request.setAttribute( ATT_ASSOCIATION, association );
         
         this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );
-      	
-	}
+    }
 }

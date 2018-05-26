@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -41,6 +42,8 @@ public class Connexion_association extends HttpServlet {
 		
         /* Appel au traitement et à la validation de la requête, et récupération du bean en résultant */
         Association association = form.connecterAssociation( request );
+        
+    	Map<String, String> ATT_ERREURS = form.getErreurs();
 		
         /* Stockage du formulaire et du bean dans l'objet request */
         request.setAttribute( ATT_FORM, form );

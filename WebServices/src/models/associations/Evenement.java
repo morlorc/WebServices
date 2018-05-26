@@ -2,7 +2,7 @@ package models.associations;
 
 import javax.xml.bind.annotation.XmlType;
 
-@XmlType(propOrder= {"id_event","nom_event","date_debut","date_fin","etat", "candidatures"})
+@XmlType(propOrder= {"id_event","nom_event","date_debut","date_fin", "description_event", "candidatures"})
 
 public class Evenement
 {

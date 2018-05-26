@@ -1,66 +1,58 @@
 package models.associations;
 
-import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 @XmlType(propOrder= {"SIREN","nom_asso","mail_asso","mdp_asso","evenements"})
-@XmlRootElement
 
 public class Association {
 
-	private String nom;
-	private String mail;
-	private String id_asso;
-	private String siren;
-	private String mdp;
+	private String nom_asso;
+	private String mail_asso;
+	private String SIREN;
+	private String mdp_asso;
 
     private Evenements evenements;
 
 	public String getNom() {
-		return nom;
+		return nom_asso;
 	}
-    public Association(String siren_asso, String nom_asso, String email, String motDePasse) {
-    	siren = siren_asso;
-    	nom = nom_asso;
-    	mail = email;
-    	mdp = motDePasse;
+    public Association(String siren_asso, String nom, String email, String motDePasse, Evenements events) {
+    	SIREN = siren_asso;
+    	nom_asso = nom;
+    	mail_asso = email;
+    	mdp_asso = motDePasse;
+    	evenements = events;
     }
     public Association() {
-    	siren = "";
-    	nom = "";
-    	mail = "";
-    	mdp = "";
+    	SIREN = "";
+    	nom_asso = "";
+    	mail_asso = "";
+    	mdp_asso = "";
     }
 	/**
 	 * défini le nom de l'association
 	 * @param nom
 	 */
-	public void setNom(String nom) {
-		this.nom = nom;
+	public void setNom(String nom_asso) {
+		this.nom_asso = nom_asso;
 	}
 	public String getMail() {
-		return mail;
+		return mail_asso;
 	}
-	public void setMail(String mail) {
-		this.mail = mail;
-	}
-	public String getId_asso() {
-		return id_asso;
-	}
-	public void setId_asso(String id_asso) {
-		this.id_asso = id_asso;
+	public void setMail(String mail_asso) {
+		this.mail_asso = mail_asso;
 	}
 	public String getSiren() {
-		return siren;
+		return SIREN;
 	}
-	public void setSiren(String siren) {
-		this.siren = siren;
+	public void setSiren(String SIREN) {
+		this.SIREN = SIREN;
 	}
 	public String getMdp() {
-		return mdp;
+		return mdp_asso;
 	}
-	public void setMdp(String mdp) {
-		this.mdp = mdp;
+	public void setMdp(String mdp_asso) {
+		this.mdp_asso = mdp_asso;
 	}
 
     public Evenements getEvenements ()
@@ -76,6 +68,6 @@ public class Association {
     @Override
     public String toString()
     {
-        return "ClassPojo [siren = "+siren+", nom = "+nom+", mdp = "+mdp+", evenements = "+evenements+", mail = "+mail+"]";
+        return "ClassPojo [siren = "+SIREN+", nom = "+nom_asso+", mdp = "+mdp_asso+", evenements = "+evenements+", mail = "+mail_asso+"]";
     }
 }
