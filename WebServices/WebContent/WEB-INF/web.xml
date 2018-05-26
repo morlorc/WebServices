@@ -6,6 +6,6 @@
 	</welcome-file-list>
 	<context-param>
 		<param-name>localDirectoryPath</param-name>
-		<param-value>C:\Eclipse_Workspace\WebServices\WebContent\WEB-INF\bdd\</param-value>
+		<param-value>D:\Users\Pierre\Desktop\WebsGit\WebServices\WebServices\WebContent\WEB-INF\bdd\</param-value>
 	</context-param>
 </web-app>
