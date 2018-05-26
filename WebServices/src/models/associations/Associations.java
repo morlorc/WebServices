@@ -6,8 +6,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
 
-public class Associations
-{
+public class Associations {
+	
     private List<Association> association;
 
     public List<Association> getAssociation ()
