@@ -73,3 +73,15 @@ jQuery(document).ready(function($) {
 			$("#association .inscription").hide();
 			$("#association .connexion").show();
 	}
+	
+	function myFunction(element) {
+		console.log("test");
+		var element = $(element).parent();
+		var dropdown = element.find('.dropdown');
+		if(dropdown.hasClass('hidden')) {
+			dropdown.removeClass('hidden');
+		} else {
+			dropdown.addClass('hidden');
+		}
+		
+	}
