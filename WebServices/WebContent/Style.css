@@ -329,6 +329,28 @@ label i::after {
  border:1 solid #ddd;
 } */
 
+.table td.collapsable {
+	padding: 0;
+}
+
+.table td.collapsable > div:first-child {
+	height: 100%;
+	width:100%;
+	padding: 0.75em;
+}
+
+.table td.collapsable .dropdown {
+	width: 100%;
+	height: 50px;
+	transition: all 0.3s ease;
+	overflow: hidden;
+}
+
+
+.table td.collapsable .dropdown.hidden {
+	height: 0;
+}
+
 @media (max-width: 767px) {
 	#choix .noselect {
 	    height: 0;
@@ -362,4 +384,5 @@ label i::after {
 		left:calc(50% - 25px);
 		bottom: 30px;
 	}
+
 }
