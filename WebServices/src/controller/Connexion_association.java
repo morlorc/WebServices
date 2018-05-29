@@ -46,7 +46,7 @@ public class Connexion_association extends HttpServlet {
     	Map<String, String> ATT_ERREURS = form.getErreurs();
 		
         /* Stockage du formulaire et du bean dans l'objet request */
-        request.setAttribute( ATT_FORM, form );
+        request.setAttribute( ATT_FORM, ATT_ERREURS );
         request.setAttribute( ATT_ASSOCIATION, association );
 		
         this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );

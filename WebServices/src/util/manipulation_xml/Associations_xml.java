@@ -6,6 +6,11 @@ import models.associations.*;
 import java.io.File;
 import java.util.Objects;
 
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Unmarshaller;
+import javax.xml.transform.stream.StreamSource;
+
 
 public class Associations_xml {
 	
@@ -16,18 +21,34 @@ public class Associations_xml {
 					src
 			);
 		}catch (Exception e) {
+			System.out.println("Erreur asso unmarshal : " + src);
 			e.printStackTrace();
 			return null;
 		}
 	}
 	
 	public static boolean existeDejaMail(File src, String mail){
-		Associations p = unmarshal_associations(src);
-		for (int i=0; i<p.getAssociation().size(); ++i) {
-			if (Objects.equals(mail, p.getAssociation().get(i).getMail())) {
-				return true;
+		//Associations p = unmarshal_associations(src);
+		try {
+			System.out.println("existeDejaMail 1");
+			JAXBContext ctx;
+			System.out.println("existeDejaMail 2");
+			ctx = JAXBContext.newInstance(models.associations.Associations.class);
+			System.out.println("existeDejaMail 3");
+			Unmarshaller u = ctx.createUnmarshaller();
+			System.out.println("existeDejaMail 4");
+	        Associations p = u.unmarshal(new StreamSource(src), models.associations.Associations.class).getValue();
+	        System.out.println("existeDejaMail 5");
+	        for (int i=0; i<p.getAssociation().size(); ++i) {
+				if (Objects.equals(mail, p.getAssociation().get(i).getMail())) {
+					return true;
+				}
 			}
+		} catch (JAXBException e) {
+			System.out.println("Erreur existeDejaMail !");
+			e.printStackTrace();
 		}
+		System.out.println("Fin existeDejaMail");
 		return false;
 	}
 	
