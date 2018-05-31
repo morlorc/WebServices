@@ -43,7 +43,6 @@ jQuery(document).ready(function($) {
 			$("#association .base").delay(500).fadeIn(800);
 			zoomAssociation();
 		});
-
 			
 	});	
 });
