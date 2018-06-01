@@ -31,7 +31,6 @@ public class Connexion_benevole extends HttpServlet {
 		super.init();
 		System.err.println(getServletContext().getInitParameter("localDirectoryPath"));
 		Config.setChemin(getServletContext().getInitParameter("localDirectoryPath"));
-		System.err.println("chemin="+Config.getChemin());
 	}
 
     /**

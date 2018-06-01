@@ -28,13 +28,34 @@
     width: 50%;
     position: fixed;
 }
+.profil
+{
+	background-size: cover;
+	background-position: center center;
+	transition: 2s, opacity 1.5s;
+	text-align: center;
+    transition-delay:0s;
+    overflow: hidden;
+    left:0px;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    padding-top: 80px;
+}
+.benev{
+	background-image: url("Benevole.jpg");
+	}
+	
+.asso{
+	background-image: url("Association.jpg");
+	}
 #choix
 {
 	height: 100vh;
 	width: 100vw;
 }
 
-#choix form{
+#choix form, .profil form{
 	background-color: rgba(255,255,255,0.8);
     max-width: 330px;
     min-width: 250px;
@@ -47,7 +68,7 @@
 .inscription, .connexion {
 	display:none;
 }
-#choix h2{
+#choix h2, .profil h2{
 	color: #fff;
     background: linear-gradient(to bottom right, #287cc9, #5a2ad0);
     border-color: #007bff;
@@ -60,7 +81,7 @@
     line-height: 1.8em;
 }
 
-#choix form input[type=submit]{
+#choix form input[type=submit], .profil form button{
     background: linear-gradient(to bottom right, #1766af, #287cc9);
     color: white;
     padding: 14px 20px;
@@ -160,7 +181,7 @@ body#connexion {
 	text-shadow: 0px 0px 3px black;
 }
 
-#choix form input[type=submit]{
+#choix form input[type=submit], .profil form button {
 	transition:0.6s;
 	min-width: 40%;
 }
@@ -170,7 +191,7 @@ body#connexion {
     margin: auto;
 }
 
-#choix form input[type=submit]:hover, #choix form input[type=submit]:focus{
+#choix form input[type=submit]:hover, #choix form input[type=submit]:focus, .profil form button:hover {
     padding: 14px auto;
     min-width: 100%;
 }

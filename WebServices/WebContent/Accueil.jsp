@@ -3,7 +3,7 @@
 <html>
 	<head>
 		<title>Accueil</title>
-		<link rel="icon" href="group.png" type="image/x-icon" />
+		<link rel="icon" href="favico.ico" type="image/x-icon" />
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">

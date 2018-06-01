@@ -1,7 +1,7 @@
 !DOCTYPE html>
 <html>
 	<head>
-		<title>Accueil</title>
+		<title>Evenements</title>
 		<link rel="icon" href="group.png" type="image/x-icon" />
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,7 +16,7 @@
 	<body class="evenements">
 			<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
 			  <span class="navbar-brand">
-					Mes évènements :
+					Association
 			  </span>
 			  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
 			    <span class="navbar-toggler-icon"></span>
@@ -24,15 +24,17 @@
 			  <div class="collapse navbar-collapse" id="collapsibleNavbar">
 			    <ul class="navbar-nav">
 			      <li class="nav-item">
-			        <a class="nav-link" href="#">Les événements</a>
+			        <a class="nav-link" href="associationListeEvents.html">Les événements</a>
 			      </li>
-			      
 			      <li class="nav-item">
-			        <a class="nav-link" href="#">Profil</a>
-			      </li> 
-					<li class="nav-item">
-			        <a class="nav-link" href="#">Association</a>
-			      </li>    				  
+			        <a class="nav-link" href="associationListeEvents.html">Mes événements</a>
+			      </li>
+			      <li class="nav-item">
+			        <a class="nav-link" href="associationCreerEvents.html">Créer événement</a>
+			      </li>
+			      <li class="nav-item">
+			        <a class="nav-link" href="associationProfil.html">Profil</a>
+			      </li> 			  
 			    </ul>
 			  </div>  
 			</nav>
@@ -40,11 +42,8 @@
 			  <table class="table table-dark table-hover"></br></br>
 				<thead>
 				  <tr>
-					<h2>Mes évènements :</h2>
+					<h1>Mes évènements :</h1>
 					<th>Nom de l'évènement:</th>
-
-  					</div>
-					</div>
 					<th>Date début:</th>
 					<th>Date de fin:</th>
 					
@@ -59,9 +58,23 @@
 						</div>
 						<div class="dropdown hidden">
 							<div id="myDropdown" class="dropdown-content">
-								<a href="#" >test</a>
-							    <a href="#">test</a>
-							    <a href="#">test</a>
+								<p>Description : Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un peintre anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte. Il n'a pas fait que survivre cinq siècles, mais s'est aussi adapté à la bureautique informatique, sans que son contenu n'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme Aldus PageMaker.
+								</p>
+							</div>
+						</div>
+					</td>
+					<td>oiu</td>
+					<td>ezrzer</td>
+					<td>zerzerzer</td>
+				  </tr>
+				  <tr>
+					<td class="collapsable">
+						<div onclick="myFunction(this)">
+							test
+						</div>
+						<div class="dropdown hidden">
+							<div id="myDropdown" class="dropdown-content">
+								<p>Description : </p>
 							</div>
 						</div>
 					</td>

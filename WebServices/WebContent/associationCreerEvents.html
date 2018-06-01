@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<title>Créer un événement</title>
+		<link rel="icon" href="favico.ico" type="image/x-icon" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="Style.css" type="text/css" media="screen" >
+	  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  		  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    </head>
+    	<body>
+    	
+			<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
+			  <span class="navbar-brand">
+					Association
+			  </span>
+			  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+			    <span class="navbar-toggler-icon"></span>
+			  </button>
+			  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+			    <ul class="navbar-nav">
+			      <li class="nav-item">
+			        <a class="nav-link" href="associationListeEvents.html">Les événements</a>
+			      </li>
+			      <li class="nav-item">
+			        <a class="nav-link" href="associationMesEvents.html">Mes événements</a>
+			      </li>
+			      <li class="nav-item">
+			        <a class="nav-link" href="associationCreerEvents.html">Créer événement</a>
+			      </li>
+			      <li class="nav-item">
+			        <a class="nav-link" href="associationProfil.html">Profil</a>
+			      </li>    
+			    </ul>
+			  </div>  
+			</nav>
+			<section class="profil asso">
+			
+					
+							
+		<h2>Création d'un évènement :</h2>
+			<form>
+				<div>
+                <label for="Nom">Nom de l'évènement:</label> <br/>
+                 <input type="text" id="Nom de m'évènement" name="user_name">
+				</div>
+			
+				<div>
+                <label for="Date de début">Date début: <br/> <input type ="date"></label>
+				
+				</div>
+				<div>
+                <label for="Date de fin">Date de fin: <br/> <input type ="date"></label>
+				</div>
+				<div>
+				<label for="description">Description:</label><br/>
+				<textarea name="description" id=""></textarea>
+				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Créer l'évenement</button>
+			</form>
+		</section>	
+			<!-- The Modal -->
+			<div class="modal fade" id="myModal">
+				<div class="modal-dialog modal-lg">
+					<div class="modal-content">
+		
+						<!-- Modal Header -->
+						<div class="modal-header">
+							<h4>Création de l'événement</h4>
+		          			<button type="button" class="close" data-dismiss="modal">&times;</button>
+						</div>
+						<!-- Modal body -->
+						<div class="modal-body">Etes-vous certain de vouloir créer l'événement ? Les informations que vous avez indiquées seront accessibles par tous</div>
+						<!-- Modal footer -->
+						<div class="modal-footer">
+							<button type="button" class="btn btn-success" data-dismiss="modal">Créer</button>
+							<button type="button" class="btn btn-danger" data-dismiss="modal">Annuler</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			
+		
+	</body>
+
+</html>
+
+
+	
