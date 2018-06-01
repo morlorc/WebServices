@@ -23,7 +23,9 @@ public class Connexion_association extends HttpServlet {
     public static final String ATT_FORM = "form";
 	public static final String VUE = "/WEB-INF/ConnectionAssociation.jsp";
 	
-	
+	/**
+	 * Initialise le chemin d'accès au fichier .xml.
+	 */
     @Override
 	public void init() throws ServletException {
 		super.init();
@@ -31,11 +33,21 @@ public class Connexion_association extends HttpServlet {
 		Config.setChemin(getServletContext().getInitParameter("localDirectoryPath"));
 	}
 
+    /**
+     * Affiche la page d'inscription des associations.
+     * @param request Requête HTTP
+     * @param response Réponse HTTP
+     */
 	public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
         /* Affichage de la page d'inscription */
         this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );
     }
 	
+	/**
+	 * Traitement de la requête POST.
+	 * @param request Requête HTTP
+	 * @param response Réponse HTTP
+	 */
     public void doPost( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
         /* Préparation de l'objet formulaire */
         Connexion_association_form form = new Connexion_association_form();

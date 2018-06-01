@@ -1,6 +1,12 @@
 package util;
 
 public class Util_Inscription {
+	
+	/**
+	 * Vérifie si le nom renseigné est valide (entre 3 et 30 caractères).
+	 * @param nom Nom
+	 * @throws Exception Si le nom n'est pas valide
+	 */
 	public static void validationNom( String nom ) throws Exception{
 		System.out.println(nom);
 	    if ( nom == null || nom.trim().length() < 3 ) {
@@ -11,6 +17,11 @@ public class Util_Inscription {
 	    }
 	}
 		
+	/**
+	 * Vérifie si l'adresse mail passée en paramètre est valide.
+	 * @param email Adresse mail
+	 * @throws Exception Si l'adresse mail n'est pas valide
+	 */
     public static void validationEmail( String email ) throws Exception{
     	//System.out.println(email);5
         if ( email != null && email.trim().length() != 0 ) {
@@ -25,6 +36,11 @@ public class Util_Inscription {
         }
     }
     
+    /**
+     * Vérifie si le mot de passe en paramètre est correct (entre 8 et 100 caractères).
+     * @param motDePasse Mot de passe
+     * @throws Exception Si le mot de passe n'est pas valide
+     */
     public static void validationMotsDePasse( String motDePasse ) throws Exception{
     	//System.out.println(motDePasse);
     	if (motDePasse != null && motDePasse.trim().length() != 0) {
@@ -40,6 +56,11 @@ public class Util_Inscription {
 	    /* A rajouter la condition d'avoir un caractère spécial, un chiffre et une lettre*/
     }
     
+    /**
+     * Vérifie si le SIREN est correct (9 caractères).
+     * @param siren SIREN
+     * @throws Exception Si le SIREN n'est pas valide.
+     */
     public static void validationSiren(String siren) throws Exception {
     	//System.out.println(siren);
     	if ( siren.length() != 9 || siren != null || siren.isEmpty() || !siren.matches("[0-9]{9}")) {
@@ -47,6 +68,11 @@ public class Util_Inscription {
     		}
     }
 
+    /**
+     * Vérifie si le prénom est correct (entre 3 et 30 caractères).
+     * @param prenom Prénom
+     * @throws Exception Si le prénom n'est pas valide
+     */
 	public static void validationPrenom( String prenom ) throws Exception{
 		//System.out.println(prenom);
 	    if ( prenom == null || prenom.trim().length() < 3 ) {
@@ -57,6 +83,11 @@ public class Util_Inscription {
 	    }
 	}
 	
+	/**
+	 * Vérifie si l'âge est valide (entre 16 et 130 ans).
+	 * @param age Age
+	 * @throws Exception Si l'âge n'est pas valide
+	 */
 	public static void validationAge( String age ) throws Exception{
 		//System.out.println(age);
     	if (age != "" && age != null) {

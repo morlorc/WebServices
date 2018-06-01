@@ -21,16 +21,29 @@ public class Inscription_association_form {
     private Map<String, String> ATT_ERREURS = new HashMap<String, String>();
 	private static String ATT_RESULTAT = "resultat";
 	
+	/**
+	 * Renvoie le résultat de la reqûete.
+	 * @return Renvoie la variable contenant le résultat de la requête.
+	 */
 	public String getResultat() {
 		return ATT_RESULTAT;
 	}
 
+	/**
+	 * Renvoie la pile d'erreurs.
+	 * @return Renvoie la variable contenant la pile d'erreur.
+	 */
 	public Map<String, String> getErreurs() {
 		return ATT_ERREURS;
 	}
 	
+	/**
+	 * Gère la validité des informations lors de l'inscription d'une association.
+	 * @param request
+	 * @return Un objet Personne correspondant à la personne s'inscrivant.
+	 */
 	public Association inscrireAssociation(HttpServletRequest request) {
-		//Réucpération des champs du formulaire
+		// Récupération des champs du formulaire
 		String nom = getValeurChamp(request, CHAMP_NOM_ASSO);
 		String siren = getValeurChamp(request, CHAMP_SIREN);
 		String email = getValeurChamp(request, CHAMP_EMAIL_ASSO);
@@ -43,34 +56,40 @@ public class Inscription_association_form {
 		} else {
 			System.out.println("Association avec l'adresse : " + email);
         
+			// Validation du nom
 	        try {
 	        	Util_Inscription.validationNom( nom );
 	        }catch (Exception e){
 	        	setErreur(CHAMP_NOM_ASSO, e.getMessage());
 	        }
-			association.setNom(nom);
+			association.setNom_asso(nom);
 	        
+			// Validation su SIREN
 	        try {
 	        	Util_Inscription.validationSiren( siren );
 	        }catch (Exception e){
 	        	setErreur(CHAMP_SIREN, e.getMessage());
 	        }
-			association.setSiren(siren);
+			association.setSIREN(siren);
 	        
+			// Validation du mail
 	        try {
 	        	Util_Inscription.validationEmail( email );
 	        }catch (Exception e){
 	        	setErreur(CHAMP_EMAIL_ASSO, e.getMessage());
 	        }
-			association.setMail(email);
+			association.setMail_asso(email);
 	        
+			// Validation du mdp
 	        try {
 	        	Util_Inscription.validationMotsDePasse( mdp );
 	        }catch (Exception e){
 	        	setErreur(CHAMP_PASS_ASSO, e.getMessage());
 	        }
-			association.setMail(email);
+			association.setMail_asso(email);
         }
+		
+		// Inscrit l'association si les informations sont valides
         if ( ATT_ERREURS.isEmpty() ) {
         	Associations_xml.ajouterAssociation(new File(Config.getChemin()+"associations.xml"), nom, siren, email, mdp);
 			File f = new File(Config.getChemin()+"associations.xml");
@@ -90,16 +109,20 @@ public class Inscription_association_form {
 		
 	}
 	
-	/*
+	/**
 	 * Ajoute un message correspondant au champ spécifié à la map des erreurs.
+	 * @param champ
+	 * @param message
 	 */
 	private void setErreur(String champ, String message) {
 		ATT_ERREURS.put(champ, message);
 	}
 	
-	/*
+	/**
 	 * Méthode utilitaire qui retourne null si un champ est vide, et son contenu
-	 * sinon.
+	 * @param request
+	 * @param nomChamp Le champ à vérifier
+	 * @return Valeur du champ, Null si vide
 	 */
 	private static String getValeurChamp(HttpServletRequest request, String nomChamp) {
 		String valeur = request.getParameter(nomChamp);

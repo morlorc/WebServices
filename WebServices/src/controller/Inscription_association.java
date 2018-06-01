@@ -23,17 +23,30 @@ public class Inscription_association extends HttpServlet {
     public static final String ATT_FORM = "form";
 	public static final String VUE = "/WEB-INF/InscriptionAssociation.jsp";
 
+	/**
+	 * Initialise le chemin d'accès aux fichiers.
+	 */
     @Override
 	public void init() throws ServletException {
 		super.init();
 		Config.setChemin(getServletContext().getInitParameter("localDirectoryPath"));
 	}
     
+    /**
+     * Affiche la page de connexion des associations.
+     * @param request Requête HTTP
+     * @param response Réponse HTTP
+     */
     public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
         /* Affichage de la page d'inscription */
         this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );
     }
     
+    /**
+	 * Traitement de la requête POST.
+	 * @param request Requête HTTP
+	 * @param response Réponse HTTP
+	 */
     public void doPost( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
     	/* Préparation de l'objet formulaire */
         Inscription_association_form form = new Inscription_association_form();

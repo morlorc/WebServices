@@ -18,43 +18,56 @@ public final class Connexion_association_form {
 	private Map<String, String> ATT_ERREURS = new HashMap<String, String>();
 	private static String ATT_RESULTAT = "resultat";
 
+	/**
+	 * Renvoie le résultat.
+	 * @return Renvoie la variable contenant le résultat de la requête.
+	 */
 	public String getResultat() {
 		return ATT_RESULTAT;
 	}
 
+	/**
+	 * Renvoie la pile d'erreurs.
+	 * @return Renvoie la variable contenant la pile d'erreur.
+	 */
 	public Map<String, String> getErreurs() {
 		return ATT_ERREURS;
 	}
 
+	/**
+	 * Gère la vérification des informations lors de la connexion.
+	 * @param request
+	 * @return Un objet Association correspondant à l'association connectée.
+	 */
 	public Association connecterAssociation(HttpServletRequest request) {
-		/* Rï¿½cupï¿½ration des champs du formulaire */
+		// Récupération des champs du formulaire
 		String email = getValeurChamp(request, CHAMP_EMAIL_BN);
 		String motDePasse = getValeurChamp(request, CHAMP_PASS_BN);
 
 		Association association = new Association();
 
-		/* Validation du champ email. */
+		// Validation du mail
 		try {
 			Util_Connexion.mailVide(email);
 		} catch (Exception e) {
 			setErreur(CHAMP_EMAIL_BN, e.getMessage());
 		}
-		association.setMail(email);
+		association.setMail_asso(email);
 
-		/* Validation du champ mot de passe. */
+		// Validation du mdp
 		try {
 			Util_Connexion.mdpVide(motDePasse);
 		} catch (Exception e) {
 			setErreur(CHAMP_PASS_BN, e.getMessage());
 		}
-		association.setMdp(motDePasse);
+		association.setMdp_asso(motDePasse);
 
-		/* Initialisation du rÃ©sultat global de la validation. */
+		//Connecte l'association si les autres informations sont valides
 		if (ATT_ERREURS.isEmpty()) {
 			try {
 				File f = new File(Config.getChemin()+"associations.xml");
 				association = Associations_xml.authentification(email, motDePasse, f);
-				ATT_RESULTAT = "SuccÃ©s de la connexion.";
+				ATT_RESULTAT = "Succès de la connexion.";
 			} catch (Exception e) {
 				setErreur("wrongCredentials", e.getMessage());
 				ATT_RESULTAT = "Echec de la connexion.";
@@ -66,16 +79,20 @@ public final class Connexion_association_form {
 		return association;
 	}
 
-	/*
-	 * Ajoute un message correspondant au champ spï¿½cifiï¿½ ï¿½ la map des erreurs.
+	/**
+	 * Ajoute un message correspondant au champ spécifié à la map des erreurs.
+	 * @param champ
+	 * @param message
 	 */
 	private void setErreur(String champ, String message) {
 		ATT_ERREURS.put(champ, message);
 	}
 
-	/*
-	 * Mï¿½thode utilitaire qui retourne null si un champ est vide, et son contenu
-	 * sinon.
+	/**
+	 * Méthode utilitaire qui retourne null si un champ est vide, et son contenu
+	 * @param request
+	 * @param nomChamp Le champ à vérifier
+	 * @return Valeur du champ, Null si vide
 	 */
 	private static String getValeurChamp(HttpServletRequest request, String nomChamp) {
 		String valeur = request.getParameter(nomChamp);

@@ -9,6 +9,11 @@ import java.util.Objects;
 
 public class Personnes_xml {
 	
+	/**
+	 * Fonction utilitaire servant à unmarshall avec la classe Personnes.
+	 * @param src Fichier xml à lire
+	 * @return Un objet Personne provenant du fichier .xml.
+	 */
 	private static Personnes unmarshal_personnes(File src) {
 		try {
 			return (Personnes) JaxParser.<Personnes>unmarshal(
@@ -21,6 +26,12 @@ public class Personnes_xml {
 		}
 	}
 	
+	/**
+	 * Indique si une adresse mail existe déjà.
+	 * @param src Fichier xml à lire
+	 * @param mail Adresse mail
+	 * @return Vrai si le mail existe déjà dans la base de données, Faux sinon.
+	 */
 	public static boolean existeDejaMail(File src, String mail){
 		Personnes p = unmarshal_personnes(src);
 		for (int i=0; i<p.getPersonne().size(); ++i) {
@@ -31,6 +42,15 @@ public class Personnes_xml {
 		return false;
 	}
 	
+	/**
+	 * Ajoute un objet Personne dans un fichier .xml.
+	 * @param src Fichier xml à lire
+	 * @param nom Nom
+	 * @param prenom Prénom
+	 * @param age Age
+	 * @param email Adresse mail
+	 * @param motDePasse Mot de passe
+	 */
 	public static void ajouterPersonne(File src, String nom, String prenom, String age, String email, String motDePasse) {
 		try {
 			Personnes p = unmarshal_personnes(src);
@@ -41,6 +61,14 @@ public class Personnes_xml {
 		}
 	}
 	
+	/**
+	 * Authentifie une personne en vérifiant la validité du login et du mot de passe.
+	 * @param mail Adresse mail
+	 * @param mdp Mot de passe
+	 * @param src Fichier xml à lire
+	 * @return Un objet Association contenant les informations relatives au couple login/mdp.
+	 * @throws Exception S'il est impossible d'identifier la personne
+	 */
 	public static Personne authentification(String mail, String mdp, File src) throws Exception{
 		System.out.println("authentificationValide avec " + mail + " ; " + mdp + " " + src.getAbsolutePath());
 		Personnes p = JaxParser.unmarshal(Personnes.class, src );

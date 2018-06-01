@@ -10,11 +10,25 @@ import javax.xml.transform.stream.StreamSource;
 
 public class JaxParser {
 	
+	/**
+	 * Unmarshall un fichier au format File.
+	 * @param cl
+	 * @param f
+	 * @return Une classe provenant d'un fichier .xml.
+	 * @throws JAXBException
+	 */
 	public static <T> T unmarshal(Class<T> cl, File f) throws JAXBException
     {
         return unmarshal(cl, new StreamSource(f));
     }
     
+	/**
+	 * Unmarshall un fichier au format Source.
+	 * @param cl
+	 * @param s
+	 * @return Une classe provenant d'un fichier .xml.
+	 * @throws JAXBException
+	 */
 	public static <T> T unmarshal(Class<T> cl, Source s) throws JAXBException
     {
         JAXBContext ctx = JAXBContext.newInstance(cl);
@@ -22,6 +36,13 @@ public class JaxParser {
         return u.unmarshal(s, cl).getValue();
     }
 	
+	/**
+	 * Marshall un fichier .xml.
+	 * @param obj
+	 * @param f
+	 * @param path
+	 * @throws JAXBException
+	 */
     public static <T> void marshal(T obj, File f, String path) throws JAXBException
     {
         JAXBContext ctx = JAXBContext.newInstance(obj.getClass());

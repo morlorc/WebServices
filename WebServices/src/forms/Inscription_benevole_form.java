@@ -21,14 +21,27 @@ public class Inscription_benevole_form {
     private Map<String, String> ATT_ERREURS = new HashMap<String, String>();
 	private static String ATT_RESULTAT = "resultat";
 	
+	/**
+	 * Renvoie le résultat de la reqûete.
+	 * @return Renvoie la variable contenant le résultat de la requête.
+	 */
 	public String getResultat() {
 		return ATT_RESULTAT;
 	}
 
+	/**
+	 * Renvoie la pile d'erreurs.
+	 * @return Renvoie la variable contenant la pile d'erreur.
+	 */
 	public Map<String, String> getErreurs() {
 		return ATT_ERREURS;
 	}
 	
+	/**
+	 * Gère la validité des informations lors de l'inscription d'un bénévole.
+	 * @param request
+	 * @return Un objet Personne correspondant à la personne s'inscrivant.
+	 */
 	public Personne inscrirePersonne(HttpServletRequest request) {
 		//Réucpération des champs du formulaire
 		String nom = getValeurChamp(request, CHAMP_NOM_BN);
@@ -44,6 +57,7 @@ public class Inscription_benevole_form {
 		} else {
 			System.out.println("Personne avec l'adresse : " + email);
         
+			// Validation du nom
 	        try {
 	        	Util_Inscription.validationNom( nom );
 	        }catch (Exception e){
@@ -51,6 +65,7 @@ public class Inscription_benevole_form {
 	        }
 			personne.setNom_pers(nom);
 	        
+			// Validation du prénom
 	        try {
 	        	Util_Inscription.validationPrenom( prenom );
 	        }catch (Exception e){
@@ -58,6 +73,7 @@ public class Inscription_benevole_form {
 	        }
 			personne.setPrenom_pers(prenom);
 	        
+			// Validation de l'âge
 	        try {
 	        	Util_Inscription.validationAge( age );
 	        }catch (Exception e){
@@ -65,6 +81,7 @@ public class Inscription_benevole_form {
 	        }
 			personne.setAge(age);
 	        
+			// Validation du mail
 	        try {
 	        	Util_Inscription.validationEmail( email );
 	        }catch (Exception e){
@@ -72,6 +89,7 @@ public class Inscription_benevole_form {
 	        }
 			personne.setMail_pers(email);
 	        
+			// Validation du mdp
 	        try {
 	        	Util_Inscription.validationMotsDePasse( mdp );
 	        }catch (Exception e){
@@ -79,6 +97,8 @@ public class Inscription_benevole_form {
 	        }
 			personne.setMail_pers(email);
         }
+		
+		// Inscrit le bénévole si les informations sont valides
         if ( ATT_ERREURS.isEmpty() ) {
         	Personnes_xml.ajouterPersonne(new File(Config.getChemin()+"personnes.xml"), nom, prenom, age, email, mdp);
 			File f = new File(Config.getChemin()+"personnes.xml");
@@ -98,16 +118,20 @@ public class Inscription_benevole_form {
 		
 	}
 	
-	/*
+	/**
 	 * Ajoute un message correspondant au champ spécifié à la map des erreurs.
+	 * @param champ
+	 * @param message
 	 */
 	private void setErreur(String champ, String message) {
 		ATT_ERREURS.put(champ, message);
 	}
 	
-	/*
+	/**
 	 * Méthode utilitaire qui retourne null si un champ est vide, et son contenu
-	 * sinon.
+	 * @param request
+	 * @param nomChamp Le champ à vérifier
+	 * @return Valeur du champ, Null si vide
 	 */
 	private static String getValeurChamp(HttpServletRequest request, String nomChamp) {
 		String valeur = request.getParameter(nomChamp);

@@ -6,20 +6,16 @@ import models.associations.*;
 import java.io.File;
 import java.util.Objects;
 
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Unmarshaller;
-import javax.xml.transform.stream.StreamSource;
-
-
 public class Associations_xml {
 	
+	/**
+	 * Fonction utilitaire servant à unmarshall avec la classe Associations.
+	 * @param src Fichier xml à lire
+	 * @return Un objet Association provenant du fichier .xml.
+	 */
 	private static Associations unmarshal_associations(File src) {
 		try {
-			return (Associations) JaxParser.<Associations>unmarshal(
-					models.associations.Associations.class,
-					src
-			);
+			return JaxParser.unmarshal(Associations.class,src);
 		}catch (Exception e) {
 			System.out.println("Erreur asso unmarshal : " + src);
 			e.printStackTrace();
@@ -27,31 +23,31 @@ public class Associations_xml {
 		}
 	}
 	
+	/**
+	 * Indique si une adresse mail existe déjà dans un fichier .xml
+	 * @param src Fichier xml à lire
+	 * @param mail Adresse mail
+	 * @return Vrai si le mail existe déjà dans la base de données, Faux sinon.
+	 */
 	public static boolean existeDejaMail(File src, String mail){
-		//Associations p = unmarshal_associations(src);
-		try {
-			System.out.println("existeDejaMail 1");
-			JAXBContext ctx;
-			System.out.println("existeDejaMail 2");
-			ctx = JAXBContext.newInstance(models.associations.Associations.class);
-			System.out.println("existeDejaMail 3");
-			Unmarshaller u = ctx.createUnmarshaller();
-			System.out.println("existeDejaMail 4");
-	        Associations p = u.unmarshal(new StreamSource(src), models.associations.Associations.class).getValue();
-	        System.out.println("existeDejaMail 5");
-	        for (int i=0; i<p.getAssociation().size(); ++i) {
-				if (Objects.equals(mail, p.getAssociation().get(i).getMail())) {
-					return true;
-				}
+		Associations p = unmarshal_associations(src);
+        for (int i=0; i<p.getAssociation().size(); ++i) {
+			if (Objects.equals(mail, p.getAssociation().get(i).getMail_asso())) {
+				return true;
 			}
-		} catch (JAXBException e) {
-			System.out.println("Erreur existeDejaMail !");
-			e.printStackTrace();
 		}
 		System.out.println("Fin existeDejaMail");
 		return false;
 	}
 	
+	/**
+	 * Ajoute un objet Association dans un fichier .xml.
+	 * @param src Fichier xml à lire
+	 * @param siren SIREN
+	 * @param nom Nom
+	 * @param email Adresse mail
+	 * @param motDePasse Mot de passe
+	 */
 	public static void ajouterAssociation(File src, String siren, String nom, String email, String motDePasse) {
 		try {
 			Associations a = unmarshal_associations(src);
@@ -62,13 +58,21 @@ public class Associations_xml {
 		}
 	}
 	
+	/**
+	 * Authentifie une Association en vérifiant la validité du login et du mot de passe.
+	 * @param mail Adresse mail
+	 * @param mdp Mot de passe
+	 * @param src Fichier xml à lire
+	 * @return Un objet Personne contenant les informations relatives au couple login/mdp.
+	 * @throws Exception S'il est impossible d'authentifier l'association
+	 */
 	public static Association authentification(String mail, String mdp, File src) throws Exception{
 		System.out.println("authentificationValide avec " + mail + " ; " + mdp + " " + src.getAbsolutePath());
 		Associations p = JaxParser.unmarshal(Associations.class, src );
 		for (int i=0; i<p.getAssociation().size(); ++i) {
 			//System.out.println(p.getPersonne().get(i).getMail_pers());
-			if (Objects.equals(mail, p.getAssociation().get(i).getMail())) {
-				if (Objects.equals(mdp, p.getAssociation().get(i).getMdp())) {
+			if (Objects.equals(mail, p.getAssociation().get(i).getMail_asso())) {
+				if (Objects.equals(mdp, p.getAssociation().get(i).getMdp_asso())) {
 					return p.getAssociation().get(i);
 				} else {
 					throw new Exception("Les informations ne permettent pas de vous identifier.<br/>");

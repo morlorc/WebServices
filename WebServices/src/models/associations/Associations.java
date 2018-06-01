@@ -1,6 +1,8 @@
 package models.associations;
 
-import java.util.List;
+import java.util.ArrayList;
+
+//import java.util.List;
 
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
@@ -8,16 +10,24 @@ import javax.xml.bind.annotation.XmlTransient;
 @XmlRootElement
 @XmlTransient
 
-public class Associations {
-	
-    private List<Association> association;
+public class Associations
+{
+    private ArrayList<Association> association;
 
-    public List<Association> getAssociation ()
+    /**
+     * Renvoie la liste des associations.
+     * @return La liste des associations.
+     */
+    public ArrayList<Association> getAssociation ()
     {
         return association;
     }
 
-    public void setAssociation (List<Association> association)
+    /**
+     * Définit la liste des associations.
+     * @param association
+     */
+    public void setAssociation (ArrayList<Association> association)
     {
         this.association = association;
     }
@@ -28,4 +38,3 @@ public class Associations {
         return "ClassPojo [association = "+association+"]";
     }
 }
-		

@@ -23,6 +23,9 @@ public class Connexion_benevole extends HttpServlet {
     public static final String ATT_FORM = "form";
 	public static final String VUE = "/WEB-INF/ConnectionBenevole.jsp";
 	
+	/**
+	 * Initialise le chemin d'accès au fichier .xml.
+	 */
     @Override
 	public void init() throws ServletException {
 		super.init();
@@ -31,11 +34,21 @@ public class Connexion_benevole extends HttpServlet {
 		System.err.println("chemin="+Config.getChemin());
 	}
 
+    /**
+     * Affiche la page d'inscription des bénévoles.
+     * @param request Requête HTTP
+     * @param response Réponse HTTP
+     */
 	public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
         /* Affichage de la page d'inscription */
         this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );
     }
 	
+	/**
+	 * Traitement de la requête POST.
+	 * @param request Requête HTTP
+	 * @param response Réponse HTTP
+	 */
     public void doPost( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
         /* Préparation de l'objet formulaire */
         Connexion_benevole_form form = new Connexion_benevole_form();
