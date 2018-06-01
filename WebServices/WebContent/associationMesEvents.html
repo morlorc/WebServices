@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Mes candidatures</title>
+		<title>Mes événements</title>
 		<link rel="icon" href="group.png" type="image/x-icon" />
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -15,7 +15,7 @@
 	<body class="evenements">
 			<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
 			  <span class="navbar-brand">
-					Bénévole
+					Association
 			  </span>
 			  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
 			    <span class="navbar-toggler-icon"></span>
@@ -23,36 +23,38 @@
 			  <div class="collapse navbar-collapse" id="collapsibleNavbar">
 			    <ul class="navbar-nav">
 			      <li class="nav-item">
-			        <a class="nav-link" href="benevoleListeEvents.html">Les événements</a>
+			        <a class="nav-link" href="associationListeEvents.html">Les événements</a>
 			      </li>
 			      <li class="nav-item">
-			        <a class="nav-link" href="benevoleCandidatures.html">Mes candidatures</a>
+			        <a class="nav-link" href="associationMesEvents.html">Mes événements</a>
 			      </li>
 			      <li class="nav-item">
-			        <a class="nav-link" href="benevoleProfil.html">Profil</a>
+			        <a class="nav-link" href="associationCreerEvents.html">Créer événement</a>
+			      </li>
+			      <li class="nav-item">
+			        <a class="nav-link" href="associationProfil.html">Profil</a>
 			      </li>    
 			    </ul>
 			  </div>  
 			</nav>
 		<section>
-			  <table class="table table-dark table-hover"></br></br>
+			</br></br>
+			<h1 class="text-white">Mes évènements</h1>
+			  <table class="table table-dark table-hover">
 				<thead>
 				  <tr>
-					<h1 class="text-white">Mes candidatures</h1>
 					<th>Association</th>
 					<th>Evènement</th>
 					<th>Date début</th>
 					<th>Date fin</th>
-					<th>Etat</th>
 				  </tr>
 				</thead>
-				<tbody>
+				<tbody id="liste">
 				  <tr class="clickable" data-toggle="collapse" id="row1" data-target=".row1">
 					<td>association1</td>
 					<td>Evenement1</td>
 					<td>25/05/2018</td>
 					<td>25/05/2018</td>
-					<td><i class="fa fa-bookmark text-warning"></i> En attente</td>
 				  </tr>
 				  <tr class="collapse row1">
 			      	<td colspan ="5">Description de l'événément 1</td>
@@ -62,23 +64,21 @@
 					<td>Evenement2</td>
 					<td>30/05/2018</td>
 					<td>01/06/2018</td>
-					<td><i class="fa fa-bookmark text-success"></i> Accepté</td>
 				  </tr>
 				  <tr class="collapse row2">
-			      	<td colspan ="5"> Description de l'événément 2</td>
+			      	<td colspan ="5"> Description de l'événément 2	 </td>
 				  </tr>
 				  <tr class="clickable" data-toggle="collapse" id="row3" data-target=".row3">
 					<td>association3</td>
 					<td>Evenement3</td>
 					<td>22/06/2018</td>
 					<td>26/06/2018</td>
-					<td><i class="fa fa-bookmark text-danger"></i> Refusé</td>
 				  </tr>
 				  <tr class="collapse row3">
-			      	<td colspan ="5"> Description de l'événément 3</td>
+			      	<td colspan ="5"> Description de l'événément 3 </td>
 				  </tr>
 				</tbody>
-			  </table>
+			</table>
   		</section>
 	</body>
 
